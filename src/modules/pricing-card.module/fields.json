@@ -1,0 +1,96 @@
+[
+  {
+    "label": "Product tier",
+    "name": "tier",
+    "type": "text",
+    "default": "Free"
+  },
+  {
+    "label": "Price",
+    "name": "price",
+    "type": "text",
+    "default": "$0"
+  },
+  {
+    "label": "Price timeframe",
+    "name": "timeframe",
+    "type": "text",
+    "default": "/ mo"
+  },
+  {
+    "label": "Features",
+    "name": "features",
+    "type": "text",
+    "occurrence": {
+      "default": 4,
+      "max": 50,
+      "min": 1
+    },
+    "show_emoji_picker": true,
+    "default": [
+      "10 users included",
+      "2 GB of storage",
+      "Email support",
+      "Help center access"
+    ]
+  },
+  {
+    "label": "Button text",
+    "name": "button_text",
+    "type": "text",
+    "default": "Sign up for free"
+  },
+  {
+    "label": "Button link",
+    "name": "button_link",
+    "type": "link",
+    "supported_types": ["EXTERNAL", "CONTENT", "EMAIL_ADDRESS"],
+    "default": {
+      "url": {
+        "content_id": null,
+        "type": "EXTERNAL",
+        "href": ""
+      },
+      "open_in_new_tab": false,
+      "no_follow": false
+    }
+  },
+  {
+    "label": "Features list icon bullet",
+    "name": "feature_icon",
+    "type": "icon",
+    "default": {
+      "name": "check",
+      "type": "SOLID",
+      "unicode": "f00c"
+    }
+  },
+  {
+    "label": "Product description",
+    "name": "description",
+    "type": "text",
+    "default": "For teams that need additional security, control, and support."
+  },
+  {
+    "label": "Button background color",
+    "name": "button_bg",
+    "type": "color",
+    "default": {
+      "color": "#494A52",
+      "opacity": 100
+    }
+  },
+  {
+    "label": "Button text color",
+    "name": "button_text_color",
+    "type": "color",
+    "visibility": {
+      "hidden_subfields": {
+        "opacity": true
+      }
+    },
+    "default": {
+      "color": "#FFFFFF"
+    }
+  }
+]
