@@ -1,31 +1,9 @@
-<h1 align="center">HubSpot CMS Boilerplate</h1>
+<h1 align="center">HubSpot Figma Plugin</h1>
 
-<p align="center">
-  A straight-forward starting point for building a great website on the HubSpot CMS.
-</p>
-
-<p align="center">
-  <a href="https://github.com/HubSpot/figmaplugin/wiki">Documentation</a> |
-  <a href="https://boilerplate.hubspotcms.com/">Demo website</a> |
-  <a href="https://github.com/HubSpot/figmaplugin/blob/master/CONTRIBUTING.md">Contributing</a>
-</p>
-
-[![Current version](https://img.shields.io/github/v/release/HubSpot/figmaplugin)](https://github.com/HubSpot/figmaplugin/releases)
-[![Latest commit](https://img.shields.io/github/last-commit/HubSpot/figmaplugin)](https://github.com/HubSpot/figmaplugin/commits/master)
-[![Contributors](https://img.shields.io/github/contributors/HubSpot/figmaplugin?logo=blue)](https://github.com/HubSpot/figmaplugin/graphs/contributors)
-[![GitHub watchers](https://img.shields.io/github/watchers/HubSpot/figmaplugin?style=social)](https://github.com/HubSpot/figmaplugin/watchers)
-[![GitHub stars](https://img.shields.io/github/stars/HubSpot/figmaplugin?style=social)](https://github.com/HubSpot/figmaplugin/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/HubSpot/figmaplugin?style=social)](https://github.com/HubSpot/figmaplugin/network/members)
-[![Website grader score](https://img.shields.io/badge/Website%20grader%20score-100-brightgreen)](https://website.grader.com/tests/boilerplate.hubspotcms.com)
-[![Google Lighthouse performance score](https://img.shields.io/badge/Google%20Lighthouse%20performance%20score-97-brightgreen)](https://developers.google.com/web/tools/lighthouse)
-[![Google Lighthouse SEO score](https://img.shields.io/badge/Google%20Lighthouse%20SEO%20score-100-brightgreen)](https://developers.google.com/web/tools/lighthouse)
-[![License](https://img.shields.io/badge/license-Apache%20Version%202.0-red)](https://github.com/HubSpot/figmaplugin/blob/master/LICENSE)
 
 ## Purpose
 
-The [HubSpot CMS Boilerplate](https://designers.hubspot.com/docs/building-blocks/themes/hubspot-cms-boilerplate) is designed to offer developers a head start in the website building process. While the boilerplate represents HubSpot's opinionated best practices, we intend to learn from similar projects and feedback. We hope it offers inspiration and utility for all website projects!
 
-Follow and star the repository to stay up-to-date with product releases and evolving best practices for building websites on the HubSpot CMS.
 
 ## Getting started
 
