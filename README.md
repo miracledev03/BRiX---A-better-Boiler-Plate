@@ -1,4 +1,4 @@
-<h1 align="center">HubSpot Figma Plugin</h1>
+<h1 align="center">BRiX - A Better Boiler Plate</h1>
 
 
 ## Purpose
