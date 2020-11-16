@@ -14,7 +14,7 @@
           }
         },
         "default": {
-          "color": "#494A52"
+          "color": "#000000"
         }
       },
       {
@@ -27,7 +27,111 @@
           }
         },
         "default": {
-          "color": "#F8FAFC"
+          "color": "#828282"
+        }
+      },
+      {
+        "label": "Primary color 1",
+        "name": "primary_color_1",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "default": {
+          "color": "#000000"
+        }
+      },
+      {
+        "label": "Primary color 2",
+        "name": "primary_color_2",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "default": {
+          "color": "#313131"
+        }
+      },
+      {
+        "label": "Primary color 3",
+        "name": "primary_color_3",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "default": {
+          "color": "#4F4F4F"
+        }
+      },
+      {
+        "label": "Secondary color 1",
+        "name": "secondary_color_1",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "default": {
+          "color": "#828282"
+        }
+      },
+      {
+        "label": "Secondary color 2",
+        "name": "secondary_color_2",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "default": {
+          "color": "#BDBDBD"
+        }
+      },
+      {
+        "label": "Secondary color 3",
+        "name": "secondary_color_3",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "default": {
+          "color": "#E0E0E0"
+        }
+      },
+      {
+        "label": "Secondary color 4",
+        "name": "secondary_color_4",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "default": {
+          "color": "#F2F2F2"
+        }
+      },
+      {
+        "label": "Neutral color",
+        "name": "neutral_color",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "default": {
+          "color": "#FFFFFF"
         }
       }
     ]
