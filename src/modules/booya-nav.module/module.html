@@ -1,0 +1,34 @@
+{% import '../../macros/_helpers.html' as helpers %}
+
+<button id="brix-booya-signin">{{ module.settings.button_text || 'Sign In' }}</button>
+<div id="brix-booya-user-widget" data-hs-widget-id="{{ name }}"></div>
+
+<script type="text/javascript">
+  booya.ready(function () {
+    var config = {{ module | tojson }} || {};
+    config.settings.open_as_modal = true;
+
+    var theme = {{ helpers.export_theme() }};
+    config.theme = theme;
+
+    var signInButton = $('#brix-booya-signin');
+    signInButton.click(function (e) {
+      booya.add({
+        type: "widget",
+        name: "lock",
+        platform: "hubspot",
+        target: '#brix-booya-user-widget[data-hs-widget-id="{{ name }}"]',
+        config: config,
+      });
+    });
+
+    booya.on(booya.events.IDENTIFY_SUCCESS, function () {
+      signInButton.hide();
+      booya.widgets.renderUserWidget('#brix-booya-user-widget');
+    });
+
+    booya.on(booya.events.LOGOUT_SUCCESS, function () {
+      location.reload();
+    })
+  });
+</script>

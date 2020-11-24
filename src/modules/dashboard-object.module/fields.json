@@ -1,0 +1,22 @@
+[ {
+  "id" : "title",
+  "name" : "title",
+  "label" : "Title",
+  "required" : false,
+  "locked" : false,
+  "validation_regex" : "",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text",
+  "default" : ""
+}, {
+  "id" : "object_type",
+  "name" : "object_type",
+  "label" : "Object Type",
+  "required" : false,
+  "locked" : false,
+  "display" : "select",
+  "choices" : [ [ "contact", "Contact" ], [ "company", "Company" ], [ "deal", "Deal" ], [ "marketing_event", "Marketing Event" ], [ "product", "Product" ], [ "ticket", "Ticket" ] ],
+  "type" : "choice",
+  "default" : "ticket"
+} ]

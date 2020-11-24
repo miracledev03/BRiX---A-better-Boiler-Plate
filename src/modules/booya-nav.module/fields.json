@@ -1,0 +1,144 @@
+[ {
+  "id" : "settings",
+  "name" : "settings",
+  "label" : "Settings",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "settings.button_text",
+    "name" : "button_text",
+    "label" : "Button Text",
+    "required" : false,
+    "locked" : false,
+    "validation_regex" : "",
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text",
+    "default" : "Sign In/ Register"
+  }, {
+    "id" : "settings.show_logo",
+    "name" : "show_logo",
+    "label" : "Show Logo",
+    "required" : false,
+    "locked" : false,
+    "display" : "checkbox",
+    "type" : "boolean",
+    "default" : false
+  }, {
+    "id" : "settings.logo",
+    "name" : "logo",
+    "label" : "Logo",
+    "required" : false,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : "settings.show_logo",
+      "controlling_value_regex" : "true",
+      "operator" : "EQUAL",
+      "access" : null,
+      "hidden_subfields" : null
+    },
+    "responsive" : true,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "default" : {
+      "size_type" : "auto",
+      "src" : "",
+      "alt" : null,
+      "loading" : "disabled"
+    }
+  }, {
+    "id" : "settings.multi_step",
+    "name" : "multi_step",
+    "label" : "Multi Step",
+    "help_text" : "Request for email first and show either show the sign in or register form depending on user's status",
+    "required" : false,
+    "locked" : false,
+    "display" : "checkbox",
+    "type" : "boolean",
+    "default" : false
+  }, {
+    "id" : "settings.default_form",
+    "name" : "default_form",
+    "label" : "Default Form",
+    "required" : false,
+    "locked" : false,
+    "display" : "select",
+    "choices" : [ [ "signin", "Sign In" ], [ "signup", "Sign Up" ], [ "recover", "Recover" ], [ "magic-link", "Magic Link" ] ],
+    "type" : "choice",
+    "default" : "signin"
+  }, {
+    "id" : "settings.enabled_forms",
+    "name" : "enabled_forms",
+    "label" : "Enabled Forms",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "settings.enabled_forms.signin",
+      "name" : "signin",
+      "label" : "Sign In",
+      "required" : false,
+      "locked" : false,
+      "display" : "checkbox",
+      "type" : "boolean",
+      "default" : true
+    }, {
+      "id" : "settings.enabled_forms.signup",
+      "name" : "signup",
+      "label" : "Sign Up",
+      "required" : false,
+      "locked" : false,
+      "display" : "checkbox",
+      "type" : "boolean",
+      "default" : true
+    }, {
+      "id" : "settings.enabled_forms.recover",
+      "name" : "recover",
+      "label" : "Recover",
+      "required" : false,
+      "locked" : false,
+      "display" : "checkbox",
+      "type" : "boolean",
+      "default" : true
+    }, {
+      "id" : "settings.enabled_forms.magic_link",
+      "name" : "magic_link",
+      "label" : "Magic Link",
+      "required" : false,
+      "locked" : false,
+      "display" : "checkbox",
+      "type" : "boolean",
+      "default" : false
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "type" : "group",
+    "default" : {
+      "signin" : true,
+      "signup" : true,
+      "recover" : true,
+      "magic_link" : false
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "type" : "group",
+  "default" : {
+    "show_logo" : false,
+    "logo" : {
+      "size_type" : "auto",
+      "src" : "",
+      "alt" : null,
+      "loading" : "disabled"
+    },
+    "open_as_modal" : false,
+    "multi_step" : false,
+    "default_form" : "signin",
+    "enabled_forms" : {
+      "signin" : true,
+      "signup" : true,
+      "recover" : true,
+      "magic_link" : false
+    }
+  }
+} ]

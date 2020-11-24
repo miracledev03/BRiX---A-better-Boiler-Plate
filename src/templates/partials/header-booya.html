@@ -1,0 +1,76 @@
+<!--
+  templateType: global_partial
+  label: Website header
+-->
+<header class="header">
+
+  <a href="#main-content" class="header__skip">Skip to content</a>
+
+  <div class="header__container content-wrapper">
+
+    {# Header logo column #}
+    <div class="header__logo header__logo--main">
+      {% module 'site_logo' path='@hubspot/logo',
+        img={
+          'alt': 'LOGO',
+          'size_type': 'auto',
+          'src': get_asset_url('../../images/logo.png'),
+          'width': 176,
+          'height': 66,
+          'override_inherited_src' : true
+        } %}
+    </div>
+    {# End header logo column #}
+
+    {# Header navigation column #}
+    <div class="header__column">
+
+      {# Header navigation row one #}
+      <div class="header__row-1">
+        {% if content.translated_content|length || group.translations %}
+          <div class="header__language-switcher header--element">
+            <div class="header__language-switcher--label">
+              {% module 'language-switcher' path='@hubspot/language_switcher',
+                label='Language switcher',
+                display_mode='localized'
+              %}
+              <div class="header__language-switcher--label-current"> {{ locale_name(locale) }}</div>
+            </div>
+          </div>
+        {% endif %}
+        <div class="header__search header--element">
+          {% module 'site_search' path='@hubspot/search_input',
+            label='Search'
+          %}
+        </div>
+        <div class="header--element">
+          <div class="header--element">
+            {% module 'booya-signin' path='../../modules/booya-nav',
+            label='Booya Nav'
+            %}
+          </div>
+        </div>
+      </div>
+      {# End header navigation row one #}
+
+      {# Header navigation row two #}
+      <div class="header__row-2">
+        <div class="header--toggle header__navigation--toggle"></div>
+        {% if content.translated_content|length || group.translations %}
+          <div class="header--toggle header__language-switcher--toggle"></div>
+        {% endif %}
+        <div class="header--toggle header__search--toggle"></div>
+        <div class="header__close--toggle"></div>
+        <div class="header__navigation header--element">
+          {% module 'navigation-primary' path='../../modules/menu-section',
+            label='Primary navigation'
+          %}
+        </div>
+      </div>
+      {# End header navigation row two #}
+
+    </div>
+    {# End header navigation column #}
+
+  </div>
+</header>

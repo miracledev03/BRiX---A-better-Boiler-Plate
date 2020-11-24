@@ -1,0 +1,83 @@
+<!--
+    templateType: page
+    isAvailableForNewContent: false
+-->
+
+{# convert color to rgba #}
+{% macro color(value) %}
+{% if value.color %}
+  {% set colorhex = value.color|convert_rgb %}
+  {% if value.opacity != null %}
+    {% set coloropacity = value.opacity / 100 %}
+  {% else %}
+    {% set coloropacity = '1' %}
+  {% endif %}
+
+  rgba({{ colorhex }}, {{ coloropacity }})
+{% else %}
+{% endif %}
+
+{% endmacro %}
+
+{# export theme as a JS object #}
+{% macro export_theme() %}
+{
+  /* Colors */
+  primary_color: "{{ theme.global_colors.primary_color.color }}",
+  secondary_color: "{{ theme.global_colors.secondary_color.color }}",
+  primary_color_1: "{{ theme.global_colors.primary_color_1.color }}",
+  primary_color_2: "{{ theme.global_colors.primary_color_2.color }}",
+  primary_color_3: "{{ theme.global_colors.primary_color_3.color }}",
+  secondary_color_1: "{{ theme.global_colors.secondary_color_1.color }}",
+  secondary_color_2: "{{ theme.global_colors.secondary_color_2.color }}",
+  secondary_color_3: "{{ theme.global_colors.secondary_color_3.color }}",
+  secondary_color_4: "{{ theme.global_colors.secondary_color_4.color }}",
+  neutral_color: "{{ theme.global_colors.neutral_color.color }}",
+  anchor_font_color: "{{ theme.typography.link_color.color }}",
+  button_bg_color: "{{ color(theme.buttons.background_color) | trim }}",
+  button_font_color: "{{ theme.buttons.text_color.color }}",
+  button_border_color: "{{ theme.buttons.border_color.color }}",
+  form_title_bg_color: "{{ color(theme.forms.header_background_color) | trim }}",
+  form_title_font_color: "{{ theme.forms.header_text_color.color }}",
+  form_label_font_color: "{{ theme.forms.label_color.color }}",
+  form_help_text_font_color: "{{ theme.forms.help_text_color.color }}",
+  form_input_border_color: "{{ theme.forms.field_border_color.color }}",
+  form_input_focus_border_color: "{{ theme.forms.field_focus_border_color.color }}",
+  table_head_bg_color: "{{ color(theme.tables.header_background_color) | trim }}",
+  table_head_font_color: "{{ theme.tables.header_text_color.color }}",
+  table_bg_color: "{{ color(theme.tables.body_background_color) | trim }}",
+  table_font_color: "{{ theme.tables.body_text_color.color }}",
+  table_border_color: "{{ theme.tables.border_color.color }}",
+  table_footer_bg_color: "{{ color(theme.tables.footer_background_color) | trim }}",
+  table_footer_font_color: "{{ theme.tables.footer_text_color.color}}",
+  header_bg_color: "{{ color(theme.header.background_color) | trim }}",
+  header_nav_link_color: "{{ theme.header.menu_link_color.color }}",
+  header_child_nav_border_color: "{{ theme.header.child_menu_border_color.color }}",
+  footer_bg_color: "{{ color(theme.footer.background_color) | trim }}",
+  footer_font_color: "{{ theme.footer.text_color.color }}",
+  /* Typography */
+  primary_font: {{ theme.global_fonts.primary_font | tojson }},
+  secondary_font: {{ theme.global_fonts.secondary_font | tojson }},
+  heading_one: {{ theme.typography.heading_one | tojson }},
+  heading_two: {{ theme.typography.heading_two | tojson }},
+  heading_three: {{ theme.typography.heading_three | tojson }},
+  heading_four: {{ theme.typography.heading_four | tojson }},
+  heading_five: {{ theme.typography.heading_five | tojson }},
+  heading_six: {{ theme.typography.heading_six | tojson }},
+  body_text_large: {{ theme.typography.body_text_large | tojson }},
+  body_text_medium: {{ theme.typography.body_text_medium | tojson }},
+  body_text_regular: {{ theme.typography.body_text_regular | tojson }},
+  body_text_small: {{ theme.typography.body_text_small | tojson }},
+  body_text_small_bold: {{ theme.typography.body_text_small_bold | tojson }},
+  label_text_large: {{ theme.typography.label_text_large | tojson }},
+  label_text_medium: {{ theme.typography.label_text_medium | tojson }},
+  label_text_small: {{ theme.typography.label_text_small | tojson }},
+  /* Spacing */
+  max_width: "{{ theme.spacing.max_width }}",
+  vertical_spacing: "{{ theme.spacing.vertical_spacing }}",
+  button_border_width: "{{ theme.buttons.border_width }}",
+  button_border_radius : "{{ theme.buttons.border_radius }}",
+  button_spacing_vertical  : "{{ theme.buttons.vertical_padding }}",
+  button_spacing_horizontal  : "{{ theme.buttons.horizontal_padding }}"
+}
+{% endmacro %}

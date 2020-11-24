@@ -1,0 +1,28 @@
+{% import '../../macros/_helpers.html' as helpers %}
+
+<div style="display: none" class="brix-dashboard-object-wrapper" data-hs-widget-id="{{ name }}"></div>
+
+<script type="text/javascript">
+  booya.ready(function () {
+    var target = '.brix-dashboard-object-wrapper[data-hs-widget-id="{{ name }}"]';
+    var dashboardObjectWrapper = $(target);
+    booya.on(booya.events.IDENTIFY_SUCCESS, function () {
+      booya.add({
+        type: "widget",
+        name: "{{ module.object_type || 'ticket' }}",
+        platform: "hubspot",
+        target: target,
+        config: {
+          settings: {{ module | tojson }},
+          theme: {{ helpers.export_theme() }},
+        },
+      });
+
+      dashboardObjectWrapper.show();
+    });
+
+    booya.on(booya.events.LOGOUT_SUCCESS, function () {
+      dashboardObjectWrapper.hide();
+    })
+  });
+</script>
