@@ -1,8 +1,7 @@
 .card--pricing {
-  -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
   padding: 2rem;
   text-align: center;
+  border: 1px solid #BDBDBD;
 }
 
 .card__button {
@@ -16,17 +15,12 @@
 }
 
 .card--pricing hr {
-  background: none;
   border-top: 1.5px solid #CED4DB;
+  margin: 30px 0;
 }
 
 .card__header {
   text-align: center;
-}
-
-.card__subtitle, .card__body li {
-  font-size: 0.9em;
-  line-height: 1.2em;
 }
 
 .card__body ul, .card__body li {

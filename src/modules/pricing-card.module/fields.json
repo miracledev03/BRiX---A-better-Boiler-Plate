@@ -3,13 +3,13 @@
     "label": "Product tier",
     "name": "tier",
     "type": "text",
-    "default": "Free"
+    "default": "Starter"
   },
   {
     "label": "Price",
     "name": "price",
     "type": "text",
-    "default": "$0"
+    "default": "$10"
   },
   {
     "label": "Price timeframe",
@@ -28,17 +28,22 @@
     },
     "show_emoji_picker": true,
     "default": [
-      "10 users included",
-      "2 GB of storage",
-      "Email support",
-      "Help center access"
+      "Ad management",
+      "Live chat",
+      "Conversational bots",
+      "Forms",
+      "Pop-up forms",
+      "Contact website activity",
+      "List segmentation",
+      "Email marketing",
+      "Ad retargeting"
     ]
   },
   {
     "label": "Button text",
     "name": "button_text",
     "type": "text",
-    "default": "Sign up for free"
+    "default": "Buy now"
   },
   {
     "label": "Button link",
@@ -69,7 +74,7 @@
     "label": "Product description",
     "name": "description",
     "type": "text",
-    "default": "For teams that need additional security, control, and support."
+    "default": "For individuals or team just getting started with sales."
   },
   {
     "label": "Button background color",

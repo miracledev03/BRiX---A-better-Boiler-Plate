@@ -5,32 +5,6 @@
     "type": "group",
     "children": [
       {
-        "label": "Primary color",
-        "name": "primary_color",
-        "type": "color",
-        "visibility": {
-          "hidden_subfields": {
-            "opacity": true
-          }
-        },
-        "default": {
-          "color": "#000000"
-        }
-      },
-      {
-        "label": "Secondary color",
-        "name": "secondary_color",
-        "type": "color",
-        "visibility": {
-          "hidden_subfields": {
-            "opacity": true
-          }
-        },
-        "default": {
-          "color": "#828282"
-        }
-      },
-      {
         "label": "Primary color 1",
         "name": "primary_color_1",
         "type": "color",
@@ -133,6 +107,32 @@
         "default": {
           "color": "#FFFFFF"
         }
+      },
+      {
+        "label": "Primary color",
+        "name": "primary_color",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "default": {
+          "color": "#000000"
+        }
+      },
+      {
+        "label": "Secondary color",
+        "name": "secondary_color",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "default": {
+          "color": "#828282"
+        }
       }
     ]
   },
@@ -154,11 +154,11 @@
         "load_external_fonts": true,
         "inherited_value": {
           "property_value_paths": {
-            "color": "theme.global_colors.primary_color.color"
+            "color": "theme.global_colors.primary_color_1.color"
           }
         },
         "default": {
-          "font": "Lato",
+          "font": "Nunito Sans",
           "font_set": "GOOGLE"
         }
       },
@@ -175,11 +175,11 @@
         "load_external_fonts": true,
         "inherited_value": {
           "property_value_paths": {
-            "color": "theme.global_colors.primary_color.color"
+            "color": "theme.global_colors.secondary_color_1.color"
           }
         },
         "default": {
-          "font": "Merriweather",
+          "font": "Lato",
           "font_set": "GOOGLE"
         }
       }
@@ -194,9 +194,10 @@
         "label": "Background color",
         "name": "background_color",
         "type": "color",
-        "default": {
-          "color": "#F8FAFC",
-          "opacity": 100
+        "inherited_value": {
+          "property_value_paths": {
+            "color": "theme.global_colors.secondary_color_4.color"
+          }
         }
       },
       {
@@ -210,7 +211,7 @@
         },
         "inherited_value": {
           "property_value_paths": {
-            "color": "theme.global_fonts.primary_font.color"
+            "color": "theme.global_colors.primary_color_3.color"
           }
         }
       },
@@ -223,8 +224,10 @@
             "opacity": true
           }
         },
-        "default": {
-          "color": "#494A52"
+        "inherited_value": {
+          "property_value_paths": {
+            "color": "theme.global_colors.primary_color_1.color"
+          }
         }
       }
     ]
@@ -234,6 +237,327 @@
     "name": "typography",
     "type": "group",
     "children": [
+      {
+        "label": "Heading one (H1)",
+        "name": "heading_one",
+        "type": "font",
+        "load_external_fonts": true,
+        "inherited_value": {
+          "property_value_paths": {
+            "color": "theme.global_fonts.primary_font.color",
+            "font": "theme.global_fonts.primary_font.font",
+            "font_set": "theme.global_fonts.primary_font.font_set"
+          }
+        },
+        "default": {
+          "size": 50,
+          "size_unit": "px",
+          "styles": {
+            "text-decoration": "none"
+          },
+          "variant": "800"
+        }
+      },
+      {
+        "label": "Heading two (H2)",
+        "name": "heading_two",
+        "type": "font",
+        "load_external_fonts": true,
+        "inherited_value": {
+          "property_value_paths": {
+            "color": "theme.global_fonts.primary_font.color",
+            "font": "theme.global_fonts.primary_font.font",
+            "font_set": "theme.global_fonts.primary_font.font_set"
+          }
+        },
+        "default": {
+          "size": 38,
+          "size_unit": "px",
+          "styles": {
+            "text-decoration": "none"
+          },
+          "variant": "800"
+        }
+      },
+      {
+        "label": "Heading three (H3)",
+        "name": "heading_three",
+        "type": "font",
+        "load_external_fonts": true,
+        "inherited_value": {
+          "property_value_paths": {
+            "color": "theme.global_fonts.primary_font.color",
+            "font": "theme.global_fonts.primary_font.font",
+            "font_set": "theme.global_fonts.primary_font.font_set"
+          }
+        },
+        "default": {
+          "size": 30,
+          "size_unit": "px",
+          "styles": {
+            "text-decoration": "none"
+          },
+          "variant": "800"
+        }
+      },
+      {
+        "label": "Heading four (H4)",
+        "name": "heading_four",
+        "type": "font",
+        "load_external_fonts": true,
+        "inherited_value": {
+          "property_value_paths": {
+            "color": "theme.global_fonts.primary_font.color",
+            "font": "theme.global_fonts.primary_font.font",
+            "font_set": "theme.global_fonts.primary_font.font_set"
+          }
+        },
+        "default": {
+          "size": 24,
+          "size_unit": "px",
+          "styles": {
+            "text-decoration": "none"
+          },
+          "variant": "800"
+        }
+      },
+      {
+        "label": "Heading five (H5)",
+        "name": "heading_five",
+        "type": "font",
+        "load_external_fonts": true,
+        "inherited_value": {
+          "property_value_paths": {
+            "font": "theme.global_fonts.primary_font.font",
+            "font_set": "theme.global_fonts.primary_font.font_set"
+          }
+        },
+        "default": {
+          "color": "#000000",
+          "size": 16,
+          "size_unit": "px",
+          "styles": {
+            "text-decoration": "none"
+          },
+          "variant": "800"
+        }
+      },
+      {
+        "label": "Heading six (H6)",
+        "name": "heading_six",
+        "type": "font",
+        "load_external_fonts": true,
+        "inherited_value": {
+          "property_value_paths": {
+            "color": "theme.global_fonts.primary_font.color",
+            "font": "theme.global_fonts.primary_font.font",
+            "font_set": "theme.global_fonts.primary_font.font_set"
+          }
+        },
+        "default": {
+          "size": 14,
+          "size_unit": "px",
+          "styles": {
+            "text-decoration": "none"
+          },
+          "variant": "800"
+        }
+      },
+      {
+        "label": "Body text large",
+        "name": "body_text_large",
+        "type": "font",
+        "visibility": {
+          "hidden_subfields": {
+            "styles": false
+          }
+        },
+        "load_external_fonts": true,
+        "inherited_value": {
+          "property_value_paths": {
+            "color": "theme.global_fonts.primary_font.color",
+            "font": "theme.global_fonts.primary_font.font",
+            "font_set": "theme.global_fonts.primary_font.font_set"
+          }
+        },
+        "default": {
+          "size": 22,
+          "size_unit": "px"
+        }
+      },
+      {
+        "label": "Body text medium",
+        "name": "body_text_medium",
+        "type": "font",
+        "visibility": {
+          "hidden_subfields": {
+            "styles": false
+          }
+        },
+        "load_external_fonts": true,
+        "inherited_value": {
+          "property_value_paths": {
+            "color": "theme.global_fonts.primary_font.color",
+            "font": "theme.global_fonts.primary_font.font",
+            "font_set": "theme.global_fonts.primary_font.font_set"
+          }
+        },
+        "default": {
+          "size": 18,
+          "size_unit": "px"
+        }
+      },
+      {
+        "label": "Body text regular",
+        "name": "body_text_regular",
+        "type": "font",
+        "visibility": {
+          "hidden_subfields": {
+            "styles": false
+          }
+        },
+        "load_external_fonts": true,
+        "inherited_value": {
+          "property_value_paths": {
+            "color": "theme.global_fonts.primary_font.color",
+            "font": "theme.global_fonts.primary_font.font",
+            "font_set": "theme.global_fonts.primary_font.font_set"
+          }
+        },
+        "default": {
+          "size": 16,
+          "size_unit": "px"
+        }
+      },
+      {
+        "label": "Body text small",
+        "name": "body_text_small",
+        "type": "font",
+        "visibility": {
+          "hidden_subfields": {
+            "styles": false
+          }
+        },
+        "load_external_fonts": true,
+        "inherited_value": {
+          "property_value_paths": {
+            "color": "theme.global_fonts.primary_font.color",
+            "font": "theme.global_fonts.primary_font.font",
+            "font_set": "theme.global_fonts.primary_font.font_set"
+          }
+        },
+        "default": {
+          "size": 14,
+          "size_unit": "px"
+        }
+      },
+      {
+        "label": "Body text small bold",
+        "name": "body_text_small_bold",
+        "type": "font",
+        "visibility": {
+          "hidden_subfields": {
+            "styles": false
+          }
+        },
+        "load_external_fonts": true,
+        "inherited_value": {
+          "property_value_paths": {
+            "color": "theme.global_fonts.primary_font.color",
+            "font": "theme.global_fonts.primary_font.font",
+            "font_set": "theme.global_fonts.primary_font.font_set"
+          }
+        },
+        "default": {
+          "size": 14,
+          "size_unit": "px",
+          "variant": "700"
+        }
+      },
+      {
+        "label": "Label text large",
+        "name": "label_text_large",
+        "type": "font",
+        "visibility": {
+          "hidden_subfields": {
+            "styles": false
+          }
+        },
+        "load_external_fonts": true,
+        "inherited_value": {
+          "property_value_paths": {
+            "color": "theme.global_fonts.primary_font.color",
+            "font": "theme.global_fonts.primary_font.font",
+            "font_set": "theme.global_fonts.primary_font.font_set"
+          }
+        },
+        "default": {
+          "size": 18,
+          "size_unit": "px",
+          "variant": "700"
+        }
+      },
+      {
+        "label": "Label text medium",
+        "name": "label_text_medium",
+        "type": "font",
+        "visibility": {
+          "hidden_subfields": {
+            "styles": false
+          }
+        },
+        "load_external_fonts": true,
+        "inherited_value": {
+          "property_value_paths": {
+            "color": "theme.global_fonts.primary_font.color",
+            "font": "theme.global_fonts.primary_font.font",
+            "font_set": "theme.global_fonts.primary_font.font_set"
+          }
+        },
+        "default": {
+          "size": 14,
+          "size_unit": "px",
+          "variant": "700"
+        }
+      },
+      {
+        "label": "Label text small",
+        "name": "label_text_small",
+        "type": "font",
+        "visibility": {
+          "hidden_subfields": {
+            "styles": false
+          }
+        },
+        "load_external_fonts": true,
+        "inherited_value": {
+          "property_value_paths": {
+            "color": "theme.global_fonts.primary_font.color",
+            "font": "theme.global_fonts.primary_font.font",
+            "font_set": "theme.global_fonts.primary_font.font_set"
+          }
+        },
+        "default": {
+          "size": 12,
+          "size_unit": "px",
+          "variant": "700"
+        }
+      },
+      {
+        "label": "Link color",
+        "name": "link_color",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "inherited_value": {
+          "property_value_paths": {
+            "color": "theme.global_colors.secondary_color_2.color"
+          }
+        }
+      },
       {
         "label": "Body text",
         "name": "body_text",
@@ -255,142 +579,6 @@
           "size": 24,
           "size_unit": "px"
         }
-      },
-      {
-        "label": "Heading one (H1)",
-        "name": "heading_one",
-        "type": "font",
-        "load_external_fonts": true,
-        "inherited_value": {
-          "property_value_paths": {
-            "color": "theme.global_fonts.secondary_font.color",
-            "font": "theme.global_fonts.secondary_font.font",
-            "font_set": "theme.global_fonts.secondary_font.font_set"
-          }
-        },
-        "default": {
-          "size": 50,
-          "size_unit": "px",
-          "styles": {
-            "text-decoration": "none"
-          },
-          "variant": "700"
-        }
-      },
-      {
-        "label": "Heading two (H2)",
-        "name": "heading_two",
-        "type": "font",
-        "load_external_fonts": true,
-        "inherited_value": {
-          "property_value_paths": {
-            "color": "theme.global_fonts.secondary_font.color",
-            "font": "theme.global_fonts.secondary_font.font",
-            "font_set": "theme.global_fonts.secondary_font.font_set"
-          }
-        },
-        "default": {
-          "size": 38,
-          "size_unit": "px",
-          "styles": {
-            "text-decoration": "none"
-          },
-          "variant": "700"
-        }
-      },
-      {
-        "label": "Heading three (H3)",
-        "name": "heading_three",
-        "type": "font",
-        "load_external_fonts": true,
-        "inherited_value": {
-          "property_value_paths": {
-            "color": "theme.global_fonts.secondary_font.color",
-            "font": "theme.global_fonts.secondary_font.font",
-            "font_set": "theme.global_fonts.secondary_font.font_set"
-          }
-        },
-        "default": {
-          "size": 30,
-          "size_unit": "px",
-          "styles": {
-            "text-decoration": "none"
-          },
-          "variant": "700"
-        }
-      },
-      {
-        "label": "Heading four (H4)",
-        "name": "heading_four",
-        "type": "font",
-        "load_external_fonts": true,
-        "inherited_value": {
-          "property_value_paths": {
-            "color": "theme.global_fonts.secondary_font.color",
-            "font": "theme.global_fonts.secondary_font.font",
-            "font_set": "theme.global_fonts.secondary_font.font_set"
-          }
-        },
-        "default": {
-          "size": 24,
-          "size_unit": "px",
-          "styles": {
-            "text-decoration": "none"
-          }
-        }
-      },
-      {
-        "label": "Heading five (H5)",
-        "name": "heading_five",
-        "type": "font",
-        "load_external_fonts": true,
-        "inherited_value": {
-          "property_value_paths": {
-            "font": "theme.global_fonts.secondary_font.font",
-            "font_set": "theme.global_fonts.secondary_font.font_set"
-          }
-        },
-        "default": {
-          "color": "#000000",
-          "size": 16,
-          "size_unit": "px",
-          "styles": {
-            "text-decoration": "none"
-          }
-        }
-      },
-      {
-        "label": "Heading six (H6)",
-        "name": "heading_six",
-        "type": "font",
-        "load_external_fonts": true,
-        "inherited_value": {
-          "property_value_paths": {
-            "color": "theme.global_fonts.secondary_font.color",
-            "font": "theme.global_fonts.secondary_font.font",
-            "font_set": "theme.global_fonts.secondary_font.font_set"
-          }
-        },
-        "default": {
-          "size": 14,
-          "size_unit": "px",
-          "styles": {
-            "text-decoration": "none"
-          }
-        }
-      },
-      {
-        "label": "Link color",
-        "name": "link_color",
-        "type": "color",
-        "visibility": {
-          "hidden_subfields": {
-            "opacity": true
-          }
-        },
-        "default": {
-          "color": "#0270e0"
-        }
       }
     ]
   },
@@ -405,7 +593,7 @@
         "type": "color",
         "inherited_value": {
           "property_value_paths": {
-            "color": "theme.global_colors.primary_color.color"
+            "color": "theme.global_colors.primary_color_2.color"
           }
         },
         "default": {
@@ -421,8 +609,10 @@
             "opacity": true
           }
         },
-        "default": {
-          "color": "#FFFFFF"
+        "inherited_value": {
+          "property_value_paths": {
+            "color": "theme.global_colors.neutral_color.color"
+          }
         }
       },
       {
@@ -444,7 +634,7 @@
           }
         },
         "inherited_value": {
-          "default_value_path": "theme.global_colors.primary_color"
+          "color": "theme.global_colors.primary_color_2.color"
         }
       },
       {
@@ -454,7 +644,7 @@
         "display": "slider",
         "max": 100,
         "min": 0,
-        "default": 6
+        "default": 0
       },
       {
         "label": "Horizontal padding",
@@ -463,7 +653,7 @@
         "display": "slider",
         "max": 100,
         "min": 0,
-        "default": 53
+        "default": 20
       },
       {
         "label": "Vertical padding",
@@ -486,7 +676,7 @@
         "name": "header_background_color",
         "type": "color",
         "inherited_value": {
-          "default_value_path": "theme.global_colors.primary_color"
+          "default_value_path": "theme.global_colors.neutral_color"
         },
         "default": {
           "opacity": 100
@@ -502,7 +692,7 @@
           }
         },
         "inherited_value": {
-          "default_value_path": "theme.global_colors.secondary_color"
+          "default_value_path": "theme.global_colors.primary_color_1"
         }
       },
       {
@@ -516,7 +706,7 @@
         },
         "inherited_value": {
           "property_value_paths": {
-            "color": "theme.global_fonts.primary_font.color"
+            "color": "theme.global_colors.primary_color_1.color"
           }
         }
       },
@@ -531,7 +721,7 @@
         },
         "inherited_value": {
           "property_value_paths": {
-            "color": "theme.global_fonts.primary_font.color"
+            "color": "theme.global_colors.primary_color_1.color"
           }
         }
       },
@@ -544,8 +734,10 @@
             "opacity": true
           }
         },
-        "default": {
-          "color": "#D1D6DC"
+        "inherited_value": {
+          "property_value_paths": {
+            "color": "theme.global_colors.secondary_color_1.color"
+          }
         }
       },
       {
@@ -573,7 +765,7 @@
         "name": "header_background_color",
         "type": "color",
         "inherited_value": {
-          "default_value_path": "theme.global_colors.primary_color"
+          "default_value_path": "theme.global_colors.primary_color_1"
         },
         "default": {
           "opacity": 100
@@ -588,17 +780,18 @@
             "opacity": true
           }
         },
-        "default": {
-          "color": "#FFFFFF"
+        "inherited_value": {
+          "default_value_path": "theme.global_colors.neutral_color"
         }
       },
       {
         "label": "Body background color",
         "name": "body_background_color",
         "type": "color",
-        "default": {
-          "color": "#FFFFFF",
-          "opacity": 100
+        "inherited_value": {
+          "property_value_paths": {
+            "color": "theme.global_colors.secondary_color_4.color"
+          }
         }
       },
       {
@@ -612,7 +805,7 @@
         },
         "inherited_value": {
           "property_value_paths": {
-            "color": "theme.global_fonts.primary_font.color"
+            "color": "theme.global_colors.primary_color_1.color"
           }
         }
       },
@@ -620,9 +813,10 @@
         "label": "Footer background color",
         "name": "footer_background_color",
         "type": "color",
-        "default": {
-          "color": "#FFFFFF",
-          "opacity": 100
+        "inherited_value": {
+          "property_value_paths": {
+            "color": "theme.global_colors.secondary_color_3.color"
+          }
         }
       },
       {
@@ -636,7 +830,7 @@
         },
         "inherited_value": {
           "property_value_paths": {
-            "color": "theme.global_fonts.primary_font.color"
+            "color": "theme.global_colors.primary_color_1.color"
           }
         }
       },
@@ -651,7 +845,7 @@
         },
         "inherited_value": {
           "property_value_paths": {
-            "color": "theme.global_fonts.primary_font.color"
+            "color": "theme.global_colors.neutral_color.color"
           }
         }
       }
@@ -691,9 +885,10 @@
         "label": "Background color",
         "name": "background_color",
         "type": "color",
-        "default": {
-          "color": "#F8FAFC",
-          "opacity": 100
+        "inherited_value": {
+          "property_value_paths": {
+            "color": "theme.global_colors.secondary_color_4.color"
+          }
         }
       },
       {
@@ -707,7 +902,7 @@
         },
         "inherited_value": {
           "property_value_paths": {
-            "color": "theme.global_fonts.primary_font.color"
+            "color": "theme.global_colors.primary_color_1.color"
           }
         }
       }

@@ -19,5 +19,15 @@
     "type": "text",
     "required": true,
     "default": "Add a button link here"
+  },
+  {
+    "label": "Button background color",
+    "name": "button_bg",
+    "type": "color"
+  },
+  {
+    "label": "Button text color",
+    "name": "button_text_color",
+    "type": "color"
   }
 ]

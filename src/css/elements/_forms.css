@@ -42,12 +42,12 @@ input[type=file],
 select,
 textarea {
   background-color: #FFF;
-  border: 2px solid #D1D6DC;
-  border-radius: 3px;
+  border: 1px solid #D1D6DC;
+  border-radius: 0;
   color: #33475B;
   display: inline-block;
   font-size: 0.875rem;
-  padding: 0.7rem;
+  padding: 14.5px;
   width: 100%;
 }
 
@@ -207,7 +207,7 @@ form input[type=submit],
 form .hs-button {
   background-color: #494A52;
   border: 1px solid #494A52;
-  border-radius: 6px;
+  border-radius: 0;
   color: #FFF;
   cursor: pointer;
   display: inline-block;

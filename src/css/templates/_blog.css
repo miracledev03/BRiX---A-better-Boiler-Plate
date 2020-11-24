@@ -198,7 +198,7 @@
 }
 
 .blog-pagination__link {
-  border: 2px solid transparent;
+  border: 1px solid transparent;
   border-radius: 7px;
   color: #494A52;
   display: -webkit-inline-box;
@@ -211,7 +211,7 @@
 }
 
 .blog-pagination__link--active {
-  border: 2px solid #B0C1D4;
+  border: 1px solid #B0C1D4;
 }
 
 .blog-pagination__link:hover,
@@ -259,7 +259,7 @@
 
 .blog-pagination__number-link:hover,
 .blog-pagination__number-link:focus {
-  border: 2px solid #B0C1D4;
+  border: 1px solid #B0C1D4;
 }
 
 /* Blog post */
@@ -374,7 +374,7 @@
 
 .blog-comments .hs-button {
   background-color: transparent;
-  border: 2px solid #494A52;
+  border: 1px solid #494A52;
   color: #494A52;
 }
 

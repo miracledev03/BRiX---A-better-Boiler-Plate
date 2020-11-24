@@ -1,4 +1,4 @@
-<h1 align="center">BRiX - A Better Boiler Plate</h1>
+<h1 align="center">BRiX - A Better Boilerplate</h1>
 
 
 ## Purpose

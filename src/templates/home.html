@@ -15,9 +15,9 @@
     {# Form section #}
     {% dnd_section
       background_color={
-        r: 248,
-        g: 250,
-        b: 252,
+        r: 242,
+        g: 242,
+        b: 242,
         a: 1
       },
       vertical_alignment='MIDDLE'
@@ -26,7 +26,7 @@
         img={
           'alt': 'Stock placeholder image with grayscale geometrical mountain landscape',
           'size_type': 'auto',
-          'src': get_asset_url('../images/grayscale-mountain.png')
+          'src': get_asset_url('../images/brix-placeholder.png')
         },
         offset=0,
         width=6
@@ -69,7 +69,7 @@
         img={
           'alt': 'Stock placeholder image with grayscale geometrical mountain landscape',
           'size_type': 'auto',
-          'src': get_asset_url('../images/grayscale-mountain.png')
+          'src': get_asset_url('../images/brix-placeholder.png')
         },
         offset=6,
         width=6
@@ -81,9 +81,9 @@
     {# Two column image left section #}
     {% dnd_section
       background_color={
-        r: 248,
-        g: 250,
-        b: 252,
+        r: 242,
+        g: 242,
+        b: 242,
         a: 1
       },
       vertical_alignment='MIDDLE'
@@ -92,7 +92,7 @@
         img={
           'alt': 'Stock placeholder image with grayscale geometrical mountain landscape',
           'size_type': 'auto',
-          'src': get_asset_url('../images/grayscale-mountain.png')
+          'src': get_asset_url('../images/brix-placeholder.png')
         },
         offset=0,
         width=6
@@ -112,10 +112,11 @@
 
     {# Call to action section #}
     {% dnd_section
-      background_image={
-        'backgroundPosition': 'MIDDLE_CENTER',
-        'backgroundSize': 'cover',
-        'imageUrl': get_asset_url('../images/large-placeholder-image.png')
+      background_color={
+        r: 49,
+        g: 49,
+        b: 49,
+        a: 1
       },
       max_width=700,
       padding={
@@ -156,8 +157,8 @@
           %}
             {% module_attribute 'html' %}
               <div style="text-align: center">
-                <h2>Provide an excerpt here</h2>
-                <p>Use text and images to tell your company’s story. Explain what makes your product or service extraordinary.</p>
+                <h2 style="color: #ffffff">Provide an excerpt here</h2>
+                <p style="color: #ffffff">Use text and images to tell your company’s story. Explain what makes your product or service extraordinary.</p>
               </div>
             {% end_module_attribute %}
           {% end_dnd_module %}
@@ -165,7 +166,13 @@
         {% dnd_row %}
           {% dnd_module path='../modules/customizable-button',
             button_text='See more options',
-            horizontal_alignment='CENTER'
+            horizontal_alignment='CENTER',
+            button_bg={
+              color: '#FFFFFF'
+            },
+            button_text_color={
+              color: '#000000'
+            }
           %}
           {% end_dnd_module %}
         {% end_dnd_row %}
@@ -176,9 +183,9 @@
     {# Three column feature section #}
     {% dnd_section
       background_color={
-        r: 248,
-        g: 250,
-        b: 252,
+        r: 255,
+        g: 255,
+        b: 255,
         a: 1
       },
       vertical_alignment='MIDDLE'
@@ -192,7 +199,7 @@
             img={
               'alt': 'Stock placeholder image with grayscale geometrical mountain landscape',
               'size_type': 'auto',
-              'src': get_asset_url('../images/grayscale-mountain.png')
+              'src': get_asset_url('../images/brix-placeholder.png')
             }
           %}
           {% end_dnd_module %}
@@ -215,7 +222,7 @@
             img={
               'alt': 'Stock placeholder image with grayscale geometrical mountain landscape',
               'size_type': 'auto',
-              'src': get_asset_url('../images/grayscale-mountain.png')
+              'src': get_asset_url('../images/brix-placeholder.png')
             }
           %}
           {% end_dnd_module %}
@@ -238,7 +245,7 @@
             img={
               'alt': 'Stock placeholder image with grayscale geometrical mountain landscape',
               'size_type': 'auto',
-              'src': get_asset_url('../images/grayscale-mountain.png')
+              'src': get_asset_url('../images/brix-placeholder.png')
             }
           %}
           {% end_dnd_module %}
