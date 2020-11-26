@@ -1,0 +1,22 @@
+.hero-section {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 50px 0;
+}
+
+.hero-section>.content-wrapper {
+  width: 100%;
+}
+
+.hero-section>.content-wrapper * {
+  max-width: 400px;
+}
+
+.hero-section a.button {
+  border: 0 none;
+  text-transform: uppercase;
+}

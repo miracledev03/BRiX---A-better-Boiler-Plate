@@ -28,7 +28,29 @@
   }
 }
 
+.error-page__heading {
+  margin-bottom: 1rem;
+}
+
 /* System pages */
+
+.systems-page__wrapper {
+  margin: 0;
+  padding: 90px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  box-sizing: border-box;
+  min-height: 100vh;
+  background-image: url({{ theme.system_pages.background_image.src }});
+}
+.systems-page__wrapper .content-wrapper {
+  background: white;
+}
+.systems-page__wrapper .form-container {
+  margin-bottom: 1em;
+}
 
 .systems-page {
   margin: 0 auto;

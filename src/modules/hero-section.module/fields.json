@@ -1,0 +1,55 @@
+[ {
+  "id" : "e20ce089-9f2a-84b0-9861-429775284e48",
+  "name" : "background_image",
+  "label" : "Background image",
+  "required" : false,
+  "locked" : false,
+  "responsive" : true,
+  "resizable" : false,
+  "show_loading" : false,
+  "type" : "image",
+  "default" : {
+    "size_type" : "auto",
+    "alt" : "hero",
+    "width" : 1600,
+    "height" : 800,
+    "max_width" : 1600,
+    "max_height" : 800
+  }
+}, {
+  "id" : "d585936d-a2ab-c316-c39c-7c396cfe0e66",
+  "name" : "content",
+  "label" : "Content",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "default" : "<h1>Unique <br>Experiences</h1>\n<p>Use code NEWEXP25 to get 25% off your new Unique Experience with us</p>"
+}, {
+  "id" : "752af051-4d43-0cf8-f527-2b99f8b5f313",
+  "name" : "cta_text",
+  "label" : "CTA text",
+  "required" : false,
+  "locked" : false,
+  "validation_regex" : "",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text",
+  "default" : "See all experiences ❯"
+}, {
+  "id" : "236872b4-67e6-7a91-6790-e76f03b9e265",
+  "name" : "cta_link",
+  "label" : "CTA link",
+  "required" : false,
+  "locked" : false,
+  "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+  "type" : "link",
+  "default" : {
+    "url" : {
+      "type" : "CONTENT",
+      "href" : null,
+      "content_id" : 34224770363
+    },
+    "open_in_new_tab" : false,
+    "no_follow" : false
+  }
+} ]

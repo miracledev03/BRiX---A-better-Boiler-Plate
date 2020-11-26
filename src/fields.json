@@ -907,5 +907,31 @@
         }
       }
     ]
+  },
+  {
+    "label": "System pages",
+    "name": "system_pages",
+    "type": "group",
+    "children": [
+      {
+        "id": "de032980-8bfe-40d2-a52f-c20e3982ecd2",
+        "name": "background_image",
+        "label": "Background image",
+        "required": false,
+        "locked": false,
+        "responsive": true,
+        "resizable": false,
+        "type": "image",
+        "default": {
+          "size_type": "auto",
+          "src": "https://www.hubshop.co/hubfs/hero.jpg",
+          "alt": "hero",
+          "width": 1600,
+          "height": 800,
+          "max_width": 1600,
+          "max_height": 800
+        }
+      }
+    ]
   }
 ]

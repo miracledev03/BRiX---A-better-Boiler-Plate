@@ -1,0 +1,37 @@
+<!--
+  templateType: "none"
+  isAvailableForNewContent: false
+-->
+{%- set all_products_raw = [] -%}
+{%- set product_fields = "price,price_unit,name,image,description,category" -%}
+
+{%- for i in range(0,10) -%}
+  {%- if all_products_raw|length == 0 or all_products_raw[all_products_raw|length - 1].has_more -%}
+    {%- do all_products_raw.append(crm_objects("product", "show_in_hubshop=true&limit=100&offset=" ~ (all_products_raw|length ? (all_products_raw[all_products_raw|length - 1].offset|string) : "0"), product_fields, False)) -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- set all_products = [] -%}
+{%- for group in all_products_raw -%}
+  {%- do all_products.extend(group.results) -%}
+{%- endfor -%}
+{%- set all_products_raw = None -%}
+
+{%- set all_categories = [] -%}
+{%- set all_categories_map = {} -%}
+{%- for item in all_products -%}
+  {%- set cat = item.category|trim -%}
+  {%- set key = cat|lower|regex_replace("[^a-z0-9]", "") -%}
+  {%- if cat and (not all_categories_map[key]) -%}
+    {%- set obj = {"name": cat, "key": key} -%}
+    {%- do all_categories_map.update({__KEY__: obj}|tojson|replace("__KEY__", key)|fromjson) -%}
+    {%- do all_categories.append(all_categories_map[key]) -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- for item in widget_data.shop_settings.category_setting -%}
+  {%- set cat = all_categories_map[item.category_name|lower|regex_replace("[^a-z0-9]", "")] -%}
+  {%- if cat -%}
+    {%- do cat.update({settings: item}) -%}
+  {%- endif -%}
+{%- endfor -%}

@@ -1,0 +1,19 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: All Products
+-->
+{% extends "./layouts/baseshop.html" %}
+
+{% block body_classes %}header--inverted{% endblock body_classes %}
+
+{% block body %}
+{% include "./partials/all-products.html" %}
+
+<main class="body-container-wrapper">
+  {% module "hero" path='../modules/hero-section', content='<h1>All experiences</h1>', cta_text='' %}
+  {% for cat in all_categories %}
+    {% module "category_list" path='../modules/category-product-list', category={{cat.name}}, max_number_of_items=0, overrideable=False, unique_in_loop=True %}
+  {% endfor %}
+</main>
+{% endblock body %}

@@ -1,0 +1,32 @@
+[ {
+  "id" : "fe5fd730-6eef-5dd7-cb00-6716eb6a4a65",
+  "name" : "category",
+  "label" : "Category",
+  "required" : false,
+  "locked" : false,
+  "validation_regex" : "",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text",
+  "default" : "Sport & Adventure"
+}, {
+  "id" : "c1054a60-91e7-e120-b099-2b9aead7ab00",
+  "name" : "max_number_of_items",
+  "label" : "Max number of items",
+  "required" : true,
+  "locked" : false,
+  "display" : "text",
+  "min" : 0,
+  "step" : 1,
+  "type" : "number",
+  "default" : 4
+}, {
+  "id" : "07259dcb-5358-5b88-b738-2df4a0da0b7c",
+  "name" : "show_heading",
+  "label" : "Show heading",
+  "required" : false,
+  "locked" : false,
+  "display" : "checkbox",
+  "type" : "boolean",
+  "default" : true
+} ]

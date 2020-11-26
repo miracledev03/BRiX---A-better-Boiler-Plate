@@ -1,0 +1,45 @@
+[ {
+  "id" : "85caaeda-52bd-7913-8ef5-cebe1a1364eb",
+  "name" : "category",
+  "label" : "Category",
+  "required" : false,
+  "locked" : false,
+  "validation_regex" : "",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text",
+  "default" : "Art & Culture"
+}, {
+  "id" : "859236cb-5165-9c81-d3fb-e0d878ae2586",
+  "name" : "image",
+  "label" : "Image",
+  "inline_help_text" : "Leave empty to use category image specified in shop settings",
+  "required" : false,
+  "locked" : false,
+  "responsive" : true,
+  "resizable" : false,
+  "show_loading" : false,
+  "type" : "image",
+  "default" : {
+    "size_type" : "auto",
+    "src" : "",
+    "alt" : null
+  }
+}, {
+  "id" : "04bd69a5-a72b-22c4-7104-cd998c02dc08",
+  "name" : "intro",
+  "label" : "Intro",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "default" : "<p>In-person Airbnb Experiences are available in this region. Please review and follow local COVID-19 guidelines.</p>"
+}, {
+  "id" : "57ecf1bd-a155-071c-ea24-bf7df25cadea",
+  "name" : "swap_image_and_details",
+  "label" : "Swap image and details",
+  "required" : false,
+  "locked" : false,
+  "display" : "checkbox",
+  "type" : "boolean",
+  "default" : false
+} ]

@@ -1,0 +1,28 @@
+.product-list-item {
+  display: block;
+}
+.product-list-item a,
+.product-list-item a:hover {
+  color: black;
+}
+.product-list-item a:hover {
+  text-decoration: none;
+}
+.product-list-item p {
+  margin: 10px 0;
+}
+.product-list-item__image {
+  display: block;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.product-list-item__image::before {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+.product-list-item__price span {
+  font-weight: bold;
+}

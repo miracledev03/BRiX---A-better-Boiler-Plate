@@ -1,0 +1,45 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Landing
+-->
+{% extends "./layouts/baseshop.html" %}
+
+{% block body_classes %}header--inverted{% endblock body_classes %}
+
+{% block body %}
+
+{% include "./partials/all-products.html" %}
+
+<main class="body-container-wrapper">
+  {% dnd_area 'dnd_area' class='body-container', label='Main section' %}
+    {% dnd_section
+      background_color={
+        r: 49,
+        g: 49,
+        b: 49,
+        a: 1
+      },
+      full_width="true"
+    %}
+      {% dnd_module path='../modules/hero-section' %}{% end_dnd_module %}
+    {% end_dnd_section %}
+    
+    {% dnd_section %}
+      {% dnd_module path='../modules/category-product-list' %}{% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module path='../modules/featured-category' %}{% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module path='../modules/featured-category' swap_image_and_details=True %}{% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module path='../modules/category-slider' %}{% end_dnd_module %}
+    {% end_dnd_section %}
+  {% end_dnd_area %}
+</main>
+{% endblock body %}

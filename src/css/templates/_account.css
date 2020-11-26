@@ -1,0 +1,43 @@
+.order-history {
+  margin-top: 120px;
+}
+.order-history ul {
+  padding: 0;
+}
+.order-history__order {
+  display: grid;
+  grid-template-areas: "id    date"
+                       "items items"
+                       "total total";
+  margin-bottom: 20px;
+}
+
+.order-history__order__id,
+.order-history__order__date {
+  background: #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.order-history__order__items {
+  grid-area: items;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+}
+.order-history__order__item {
+  display: contents;
+  padding: 0;
+}
+.order-history__order__item > * {
+  padding: 10px;
+}
+.order-history__order__item span,
+.order-history__order__date,
+.order-history__order__total {
+  text-align: right;
+}
+.order-history__order__total {
+  grid-area: total;
+  font-weight: bold;
+  padding: 10px;
+}

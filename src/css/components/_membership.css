@@ -1,0 +1,20 @@
+#hs_login_reset {
+  float: left;
+}
+.hs-membership-global-error {
+  color: #f2545b;
+  text-align: center;
+}
+#hs-register-widget-password, #hs-reset-widget-password {
+  margin-bottom: 8px;
+}
+.password-requirements {
+  line-height: 1.5em;
+  color: #425B76;
+}
+#hs-membership-form a {
+  float: right;
+}
+#hs-membership-form label {
+  display: inline;
+}

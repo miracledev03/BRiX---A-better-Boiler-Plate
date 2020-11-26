@@ -1,0 +1,117 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: My Account
+-->
+{%- extends "./layouts/baseshop.html" -%}
+
+{%- block body -%}
+{%- if request.contact.is_logged_in -%}
+  {%- set deals = crm_associations(
+    request.contact.contact_vid,
+    "HUBSPOT_DEFINED",
+    4,
+    "from_hubshop=true&dealstage=closedwon&limit=5&offset=" ~ request.query_dict.offset|default("0") ~ "&orderBy=-createdate",
+    "createdate,amount",
+    False
+  ) -%}
+  {%- set outdeals = {
+    "has_more": deals.has_more,
+    "offset": deals.offset,
+    "results": []
+  } -%}
+  {%- for deal in deals.results -%}
+    {%- do deal.update({"items": []}) -%}
+    {%- do outdeals.results.append(deal) -%}
+    {%- set items = crm_associations(deal.id, "HUBSPOT_DEFINED", 19, "limit=100", "name,quantity,price,hs_product_id", False) -%}
+    {%- for item in items.results -%}
+      {%- do deal.items.append(item) -%}
+    {%- endfor -%}
+  {%- endfor -%}
+  <script type="application/json" id="order-data">{{ outdeals|tojson }}</script>
+{%- endif -%}
+
+<main class="body-container-wrapper">
+  <section class="order-history">
+    <div class="content-wrapper">
+      <h2>Order history</h2>
+      {%- raw -%}
+      <ul>
+        <li class="order-history__order" v-for="deal in orders.results">
+          <span class="order-history__order__id">#{{ deal.id }}</span>
+          <span class="order-history__order__date">{{ formatDate(deal.createdate) }}</span>
+          <ul class="order-history__order__items">
+            <li class="order-history__order__item" v-for="item in deal.items">
+              <a :href="meta.detailUrl + '?id=' + item.hs_product_id">{{ item.name }}</a>
+              <span>{{ formatCurrency(item.price) }}</span>
+              <span>x {{ item.quantity }}</span>
+            </li>
+          </ul>
+          <span class="order-history__order__total">Total: {{ formatCurrency(deal.amount) }}</span>
+        </li>
+      </ul>
+      <a class="button" :href="'?offset=' + offset" v-if="orders.has_more">Next page</a>
+      {% endraw %}
+    </div>
+    {{ require_js("https://unpkg.com/vue@3.0.0/dist/vue.global.prod.js") }}
+    {%- require_js -%}
+    <script>
+    jQuery(document).ready(function() {
+      var dateTimeFormat = new Intl.DateTimeFormat(undefined, {
+        dateStyle: "short",
+        timeStyle: "short"
+      });
+      var currencyFormat = new Intl.NumberFormat(undefined, {
+        currency: "USD",
+        currencyDisplay: "narrowSymbol",
+        style: "currency",
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 2
+      });
+      Vue.createApp({
+        data: function() {
+          return {
+            meta: {
+              detailUrl: "{{ widget_data.shop_settings.page_links.product_details.href }}"
+            },
+            orders: JSON.parse($("#order-data").html()),
+          };
+        },
+        methods: {
+          formatDate: function(ts) {
+            return dateTimeFormat.format(new Date(ts));
+          },
+          formatCurrency: function(val) {
+            return currencyFormat.format(val);
+          }
+        }
+      }).mount('.order-history');
+    });
+    </script>
+    {%- end_require_js -%}
+  </section>
+  <section>
+    <div class="content-wrapper">
+      <h2>Contact information</h2>
+      {%- form
+        form_to_use='{{ widget_data.shop_settings.contact_form.form_id }}',
+        no_title=True,
+        follow_up_type_simple='{{ widget_data.shop_settings.contact_form.follow_up_type_simple }}',
+        simple_email_for_live_id='{{ widget_data.shop_settings.contact_form.simple_email_for_live_id }}',
+        follow_up_type_automation='{{ widget_data.shop_settings.contact_form.follow_up_type_automation }}',
+        form_follow_ups_workflow_id='{{ widget_data.shop_settings.contact_form.form_follow_ups_workflow_id }}',
+        response_response_type='{{ widget_data.shop_settings.contact_form.response_type }}',
+        response_redirect_id='{{ widget_data.shop_settings.contact_form.redirect_id }}',
+        response_redirect_url='{{ widget_data.shop_settings.contact_form.redirect_url }}',
+        response_message='{{ widget_data.shop_settings.contact_form.message }}',
+        notifications_are_overridden='{{ widget_data.shop_settings.contact_form.notifications_are_overridden }}',
+        notifications_override_email_addresses='{{ widget_data.shop_settings.contact_form.notifications_override_email_addresses }}'
+        gotowebinar_webinar_key='{{ widget_data.shop_settings.contact_form.gotowebinar_webinar_key }}'
+        sfdc_campaign='{{ widget_data.shop_settings.contact_form.sfdc_campaign }}',
+        overrideable=False
+      -%}
+    </div>
+  </section>
+</main>
+
+{%- endblock body -%}

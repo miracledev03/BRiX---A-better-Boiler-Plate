@@ -1,0 +1,59 @@
+.featured-category {
+  margin-top: 120px;
+}
+
+.featured-category__product-list {
+  padding: 0;
+  margin: 0 -20px;
+}
+
+.featured-category__product-list li {
+  padding: 0 20px;
+}
+
+@media (max-width: 767px) {
+  .featured-category__product-list {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .featured-category__product-list li {
+    padding: 0;
+  }
+}
+
+.featured-category__arrows {
+  text-align: right;
+  margin: 30px 0;
+}
+
+.featured-category__arrows button {
+  position: static;
+  display: inline-block !important;
+  transform: none;
+  vertical-align: middle;
+  margin-left: 12px;
+  line-height: 24px;
+}
+
+.featured-category__arrows button::before {
+  color: black;
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.featured-category__arrows .slick-prev::before {
+  background-image: url(data:image/svg+xml;charset=utf-8;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMTIgMjNDNS45MjQ4NyAyMyAxIDE4LjA3NTEgMSAxMkMxIDUuOTI0ODcgNS45MjQ4NyAxIDEyIDFDMTguMDc1MSAxIDIzIDUuOTI0ODcgMjMgMTJDMjMgMTguMDc1MSAxOC4wNzUxIDIzIDEyIDIzWk0xMiAyMUMxNi45NzA2IDIxIDIxIDE2Ljk3MDYgMjEgMTJDMjEgNy4wMjk0NCAxNi45NzA2IDMgMTIgM0M3LjAyOTQ0IDMgMyA3LjAyOTQ0IDMgMTJDMyAxNi45NzA2IDcuMDI5NDQgMjEgMTIgMjFaTTEyLjI5MjkgMTYuNzA3MUwxMy43MDcxIDE1LjI5MjlMMTAuNDE0MiAxMkwxMy43MDcxIDguNzA3MTFMMTIuMjkyOSA3LjI5Mjg5TDcuNTg1NzkgMTJMMTIuMjkyOSAxNi43MDcxWiIgZmlsbD0iYmxhY2siLz4NCjwvc3ZnPg==);
+}
+
+.featured-category__arrows .slick-next::before {
+  background-image: url(data:image/svg+xml;charset=utf-8;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMTIgMjNDNS45MjQ4NyAyMyAxIDE4LjA3NTEgMSAxMkMxIDUuOTI0ODcgNS45MjQ4NyAxIDEyIDFDMTguMDc1MSAxIDIzIDUuOTI0ODcgMjMgMTJDMjMgMTguMDc1MSAxOC4wNzUxIDIzIDEyIDIzWk0xMiAyMUMxNi45NzA2IDIxIDIxIDE2Ljk3MDYgMjEgMTJDMjEgNy4wMjk0NCAxNi45NzA2IDMgMTIgM0M3LjAyOTQ0IDMgMyA3LjAyOTQ0IDMgMTJDMyAxNi45NzA2IDcuMDI5NDQgMjEgMTIgMjFaTTEwLjcwNzEgNy4yOTI4OUw5LjI5Mjg5IDguNzA3MTFMMTIuNTg1OCAxMkw5LjI5Mjg5IDE1LjI5MjlMMTAuNzA3MSAxNi43MDcxTDE1LjQxNDIgMTJMMTAuNzA3MSA3LjI5Mjg5WiIgZmlsbD0iYmxhY2siLz4NCjwvc3ZnPg==);
+}
+
+.featured-category__bottom-cta {
+  margin-top: 30px;
+}

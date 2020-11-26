@@ -1,0 +1,42 @@
+<!--
+  templateType: "none"
+  isAvailableForNewContent: false
+-->
+<!doctype html>
+{%- module "shop_settings" path="../../modules/shop-settings", label="Shop settings" export_to_template_context=True -%}
+{%- block top -%}{%- endblock top -%}
+<html lang="{{ html_lang }}" {{ html_lang_dir }}>
+  <head>
+    <meta charset="utf-8">
+    <title>{%- block page_title -%}{{ page_meta.html_title|default(content.html_title or site_settings.membership_company_name) }}{%- endblock page_title -%}</title>
+    {%- if site_settings.favicon_src -%}<link rel="shortcut icon" href="{{ site_settings.favicon_src }}" />{%- endif -%}
+    <meta name="description" content="{{ page_meta.meta_description }}">
+    {{ require_css(get_asset_url('../../css/main.css')) }}
+    {# Where possible, improve page performance and speed by combining external http requests to reduce your
+      overall number of calls -- here, you can use a single call to the gFonts api to get all the fonts you need
+      https://developers.google.com/fonts/docs/getting_started
+    #}
+    {# Include theme overrides #}
+    {{ require_css(get_asset_url('../../css/theme-overrides.css')) }}
+    {{ require_js(get_asset_url('../../js/main.js')) }}
+    {{ standard_header_includes }}
+  </head>
+  <body class="{%- block body_classes -%}{%- endblock body_classes -%}">
+    <div class="body-wrapper {{ builtin_body_classes }}">
+      {%- block header -%}
+        {%- global_partial path='../partials/header.html' -%}
+      {%- endblock header -%}
+
+      {%- block body -%}
+      {%- endblock body -%}
+
+      {%- block footer -%}
+        {%- global_partial path='../partials/footer.html' -%}
+      {%- endblock footer -%}
+    </div>
+    {%- block cart -%}
+    {%- include "../partials/shopping-cart.html" -%}
+    {%- endblock cart -%}
+    {{ standard_footer_includes }}
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!--
+  templateType: "none"
+  isAvailableForNewContent: false
+-->
+<div class="shopping-cart" data-checkout-url="{{ widget_data.shop_settings.page_links.checkout.href }}">
+  <div class="shopping-cart__backdrop shopping-cart__close"></div>
+  <div class="shopping-cart__content">
+    <h3>Cart</h3>
+    <ul></ul>
+    <div class="shopping-cart__checkout shopping-cart__footer">
+      <a href="{{ widget_data.shop_settings.page_links.checkout.href }}" class="button">Checkout (<span class="shopping-cart__total_price" data-currency-format="{{ 42|format_currency }}"></span>)</a>
+    </div>
+  </div>
+</div>
+<template id="shopping-cart__item-template">
+  <li class="shopping-cart__item">
+    <div class="shopping-cart__item__image flex-image"></div>
+    <a class="shopping-cart__item__link" data-link-prefix="{{ widget_data.shop_settings.page_links.product_details.href }}?id="></a>
+    <div class="shopping-cart__item__actions">
+      <button class="shopping-cart__item__actions__dec">-</button>
+      <div class="shopping-cart__item__quantity"></div>
+      <button class="shopping-cart__item__actions__inc">+</button>
+      <a href="#" class="shopping-cart__item__actions__remove" title="Remove from cart">×</a>
+    </div>
+    <div class="shopping-cart__item__price" data-currency-format="{{ 42|format_currency }}"></div>
+  </li>
+</template>
+{{ require_js(get_asset_url('../../js/shopping-cart.js')) }}

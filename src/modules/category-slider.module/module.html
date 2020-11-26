@@ -1,0 +1,33 @@
+<div class="category-slider">
+  <div class="content-wrapper">
+    <h2>{{ module.heading }}</h2>
+    
+    <ul class="category-slider__inner">
+      {%- for item in all_categories -%}
+      <li>
+        <a href="{{ widget_data.shop_settings.page_links.category.href }}?category={{ item.name|lower|regex_replace("[^a-z0-9]", "") }}">
+          <span class="category-slider__image flex-image"
+            style="background-image: url({{ resize_image_url(item.settings.image.src, 1050)|default(get_asset_url('../../images/brix-placeholder.png'), True) }});"></span>
+          {{ item.name }}
+        </a>
+      </li>
+      {%- endfor -%}
+
+      {% if all_products|length == 0 %}
+        {%- for i in range(0, 4) -%}
+          <li>
+            <a href="#">
+              <span class="category-slider__image flex-image"
+              style="background-image: url({{ resize_image_url(item.settings.image.src, 1050)|default(get_asset_url('../../images/brix-placeholder.png'), True) }});"></span>
+              Nature & Outdoors
+            </a>
+          </li>
+        {% endfor %}
+      {% endif %}
+    </ul>
+  </div>
+</div>
+
+{{ require_js("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js") }}
+{{ require_css("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css") }}
+{{ require_css("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css") }}

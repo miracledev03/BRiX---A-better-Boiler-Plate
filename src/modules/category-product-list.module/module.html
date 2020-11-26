@@ -1,0 +1,44 @@
+<div class="category-product-list">
+  <div class="content-wrapper">
+    {%- if module.show_heading -%}
+    <h2>{{ module.category }}</h2>
+    {%- endif -%}
+    {%- set key = module.category|lower|regex_replace("[^a-z0-9]", "") -%}
+    {%- set added_items = [] -%}
+    <ul>
+      {%- for product in all_products -%}
+        {%- set price_suffix = product.price_unit|default(widget_data.shop_settings.default_price_unit, True) -%}
+        {%- set price_suffix = price_suffix ? "/" ~ price_suffix : "" -%}
+        {%- if product.category|lower|regex_replace("[^a-z0-9]", "") == key and (module.max_number_of_items == 0 or added_items|length < module.max_number_of_items) -%}
+        {%- do added_items.append(product) -%}
+        <li class="product-list-item">
+          <a href="{{ widget_data.shop_settings.page_links.product_details.href }}?id={{ product.id }}">
+            <span class="product-list-item__image flex-image" style="background-image: url('{{ resize_image_url(product.image, 500)|default(get_asset_url('../../images/brix-placeholder.png'), True) }}');"></span>
+            <p class="product-list-item__name">{{ product.name }}</p>
+            <p class="product-list-item__price">
+              <span>{{ product.price|format_currency }}</span>{{ price_suffix }}
+            </p>
+          </a>
+        </li>
+        {%- endif -%}
+      {%- endfor -%}
+
+      {% if all_products|length == 0 %}
+        {%- for i in range(0, 4) -%}
+          <li class="product-list-item">
+            <a href="#">
+              <span class="product-list-item__image flex-image" style="background-image: url('{{ resize_image_url(product.image, 500)|default(get_asset_url('../../images/brix-placeholder.png'), True) }}');"></span>
+              <p class="product-list-item__name">Snorkeling Blue Lagoon with Lunch & Guide</p>
+              <p class="product-list-item__price">
+                <span>€24</span>/person
+              </p>
+            </a>
+          </li>
+        {% endfor %}
+      {% endif %}
+    </ul>
+    {%- if module.max_number_of_items > 0 -%}
+      <p class="category-product-list__bottom-cta"><a class="button" href="{{ widget_data.shop_settings.page_links.category.href }}?category={{ key }}">See more options </a></p>
+    {%- endif -%}
+  </div>
+</div>

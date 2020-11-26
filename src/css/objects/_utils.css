@@ -1,0 +1,16 @@
+.flex-image {
+  display: block;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  max-width: 100%;
+}
+.hs-form.hs-form fieldset.form-columns-1 .hs-input {
+  width: 100%;
+}
+@media (max-width: 400px), (max-device-width: 480px) and (min-device-width: 320px) {
+  form.hs-form.hs-form.hs-form .form-columns-2 .hs-form-field .hs-input,
+  form.hs-form.hs-form.hs-form .form-columns-3 .hs-form-field .hs-input {
+      width: 100%;
+  }
+}

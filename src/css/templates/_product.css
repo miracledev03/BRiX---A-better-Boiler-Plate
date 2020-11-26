@@ -1,0 +1,103 @@
+.product-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "image details";
+  width: 100%;
+  align-items: center;
+  overflow: hidden;
+}
+.product-info--swap {
+  grid-template-areas: "details image";
+}
+.product-info h1 {
+  margin-bottom: 50px;
+}
+.product-info__image {
+  grid-area: image;
+  height: 100%;
+  align-self: stretch;
+}
+.product-info__image div {
+  width: 100%;
+  overflow: hidden;
+  max-height: 100vh;
+}
+.product-info__image div::before {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+  box-sizing: border-box;
+}
+.product-info__details {
+  grid-area: details;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  padding: 50px 20px;
+}
+@media (min-width: {{ theme.spacing.max_width ~ 'px' }}) {
+  .product-info__details {
+    padding: 70px 20px 70px 65px;
+  }
+  .product-info--swap .product-info__details {
+    padding: 70px 65px 70px 20px;
+    margin: 0 0 0 auto;
+  }
+}
+@media (max-width: 767px) {
+  .product-info {
+    display: block;
+  }
+  .product-info__image {
+    height: 33vh;
+    max-height: 300px;
+  }
+  .product-info__details {
+    max-width: 100%;
+    text-align: center;
+  }
+}
+.product-info__price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 65px;
+  margin-bottom: 65px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.product-info__price span {
+  font-size: 30px;
+}
+.product-info__price-row button {
+  padding: 14px 20px;
+}
+.product-info__description-container {
+  line-height: 160%;
+  height: 4.81em;
+  overflow: hidden;
+}
+.product-info__description {
+  white-space: pre-line;
+}
+.product-info.clamped .product-info__description {
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  max-height: 4.8em;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.product-info.expanded .product-info__description-container {
+  height: auto;
+}
+.product-info.expanded .product-info__description {
+  display: block;
+  max-height: none;
+}
+.product-info.clamped .read-more-link {
+  display: block;
+}
+.product-info .read-more-link,
+.product-info.expanded .read-more-link {
+  display: none;
+}

@@ -1,0 +1,37 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Category
+-->
+{% extends "./layouts/baseshop.html" %}
+
+
+{% block top %}
+{% include "./partials/all-products.html" %}
+{% set category = all_categories_map[request.query_dict.category|lower|regex_replace("[^a-z0-9]", "")] %}
+
+{% if request.cookies.x %}
+{# Bust cache, do not remove #}
+{% endif %}
+
+{% if not category %}
+<script>location.href = "{{ widget_data.shop_settings.page_links.shop_home.href }}"</script>
+{% endif %}
+{% endblock top %}
+
+{% block page_title %}{{ category.name }} - {{ super() }}{% endblock page_title %}
+
+{% block body_classes %}header--inverted{% endblock body_classes %}
+
+{% block body %}
+
+<main class="body-container-wrapper">
+  {% module_block module "hero_section" path='../modules/hero-section', background_image={src: category.settings.page_background.src|default(category.settings.image.src, True)|regex_replace("^null$", "")|default(get_asset_url("../images/large-placeholder-image.png"), True) }, cta_text='', overrideable=False %}
+    {% module_attribute "content" %}
+      <h1>{{category.name}}</h1>
+      {{ category.settings.intro }}
+    {% end_module_attribute %}
+  {% end_module_block %}
+  {% module "category_list" path='../modules/category-product-list', category={{category.name}}, show_heading=False, max_number_of_items=0, overrideable=False %}
+</main>
+{% endblock body %}

@@ -1,0 +1,8 @@
+<div class="hero-section flex-image" style="background-image: url('{{ module.background_image.src }}')">
+  <div class="content-wrapper">
+    {{ module.content }}
+    {% if module.cta_text %}
+      <p><a class="button" href="{{ module.cta_link.url.href }}" {% if module.cta_link.open_in_new_tab %}target="_blank"{% endif %} {% if module.cta_link.no_follow %}rel="nofollow"{% endif %}>{{ module.cta_text }}</a></p>
+    {% endif %}
+  </div>
+</div>

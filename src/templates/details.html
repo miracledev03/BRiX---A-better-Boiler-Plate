@@ -1,0 +1,74 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Product Details
+-->
+{%- extends "./layouts/baseshop.html" -%}
+
+{%- block top -%}
+{%- include "./partials/all-products.html" -%}
+{%- set product = crm_object("product", request.query_dict.id|int, product_fields, False) -%}
+{%- set price_suffix = product.price_unit|default(widget_data.shop_settings.default_price_unit, True) -%}
+{%- set price_suffix = price_suffix ? "/" ~ price_suffix : "" -%}
+
+{%- if request.cookies.x -%}
+{# Bust cache, do not remove #}
+{%- endif -%}
+
+{%- if not product -%}
+<script>location.href = "{{ widget_data.shop_settings.page_links.shop_home.href }}"</script>
+{%- endif -%}
+{%- endblock top -%}
+
+{%- block page_title -%}{{ product.name }} - {{ super() }}{%- endblock page_title -%}
+
+{%- block body -%}
+
+<main class="body-container-wrapper">
+  <section class="product-info">
+    <div class="product-info__image flex-image" style="background-image: url('{{ product.image }}');">
+      <div></div>
+    </div>
+    <div class="product-info__details">
+      <h1>{{ product.name }}</h1>
+      <div class="product-info__price-row">
+        <div class="product-info__price">
+          <span>{{ product.price|format_currency }}</span>{{ price_suffix }}
+        </div>
+        <button data-href="product-data-{{ product.id }}" class="shopping-cart__add">Add to cart</button>
+      </div>
+      <h3>What you'll do</h3>
+      <div class="product-info__description-container">
+        <div class="product-info__description">{{ product.description|trim|urlize }}</div>
+      </div>
+      <script type="application/json" id="product-data-{{ product.id }}">
+      {{ {
+        id: product.id,
+        name: product.name,
+        image: product.image,
+        price: product.price
+      }|tojson }}
+      </script>
+      <a href="#" class="read-more-link">Read more</a>
+    </div>
+  </section>
+
+  <section class="categories">
+    {%- module "category_slider" path="../modules/category-slider", label="Category slider", overrideable=False -%}
+  </section>
+</main>
+
+{%- require_js -%}
+<script>
+jQuery(document).ready(function() {
+  if ($(".product-info__description").height() > $(".product-info__description-container").height()) {
+    $(".product-info").addClass("clamped");
+  }
+  $(".product-info .read-more-link").click(function(e) {
+    e.preventDefault();
+    $(".product-info").addClass("expanded");
+  });
+});
+</script>
+{%- end_require_js -%}
+{%- endblock body -%}
