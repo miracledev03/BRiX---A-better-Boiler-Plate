@@ -14,7 +14,7 @@
           }
         },
         "default": {
-          "color": "#000000"
+          "color": "#061942"
         }
       },
       {
@@ -27,7 +27,7 @@
           }
         },
         "default": {
-          "color": "#313131"
+          "color": "#2569E8"
         }
       },
       {
@@ -40,7 +40,7 @@
           }
         },
         "default": {
-          "color": "#4F4F4F"
+          "color": "#D3DEEC"
         }
       },
       {
@@ -53,7 +53,7 @@
           }
         },
         "default": {
-          "color": "#828282"
+          "color": "#526078"
         }
       },
       {
@@ -66,7 +66,7 @@
           }
         },
         "default": {
-          "color": "#BDBDBD"
+          "color": "#959CAE"
         }
       },
       {
@@ -79,7 +79,7 @@
           }
         },
         "default": {
-          "color": "#E0E0E0"
+          "color": "#FADD8C"
         }
       },
       {
@@ -92,7 +92,7 @@
           }
         },
         "default": {
-          "color": "#F2F2F2"
+          "color": "#F3FAFE"
         }
       },
       {
@@ -105,7 +105,7 @@
           }
         },
         "default": {
-          "color": "#FFFFFF"
+          "color": "#F3FAFE"
         }
       },
       {
@@ -154,7 +154,7 @@
         "load_external_fonts": true,
         "inherited_value": {
           "property_value_paths": {
-            "color": "theme.global_colors.primary_color_1.color"
+            "color": "theme.global_colors.primary_color_2.color"
           }
         },
         "default": {
@@ -211,7 +211,7 @@
         },
         "inherited_value": {
           "property_value_paths": {
-            "color": "theme.global_colors.primary_color_3.color"
+            "color": "theme.global_colors.primary_color_2.color"
           }
         }
       },
@@ -328,6 +328,7 @@
         "load_external_fonts": true,
         "inherited_value": {
           "property_value_paths": {
+            "color": "theme.global_fonts.primary_font.color",
             "font": "theme.global_fonts.primary_font.font",
             "font_set": "theme.global_fonts.primary_font.font_set"
           }
@@ -644,7 +645,7 @@
         "display": "slider",
         "max": 100,
         "min": 0,
-        "default": 0
+        "default": 4
       },
       {
         "label": "Horizontal padding",
@@ -706,7 +707,7 @@
         },
         "inherited_value": {
           "property_value_paths": {
-            "color": "theme.global_colors.primary_color_1.color"
+            "color": "theme.global_colors.primary_color_2.color"
           }
         }
       },
@@ -721,7 +722,7 @@
         },
         "inherited_value": {
           "property_value_paths": {
-            "color": "theme.global_colors.primary_color_1.color"
+            "color": "theme.global_colors.primary_color_2.color"
           }
         }
       },
@@ -736,7 +737,7 @@
         },
         "inherited_value": {
           "property_value_paths": {
-            "color": "theme.global_colors.secondary_color_1.color"
+            "color": "theme.global_colors.secondary_color_2.color"
           }
         }
       },
@@ -750,7 +751,7 @@
           }
         },
         "inherited_value": {
-          "default_value_path": "theme.global_colors.primary_color"
+          "color": "theme.global_colors.secondary_color_1.color"
         }
       }
     ]
@@ -765,7 +766,7 @@
         "name": "header_background_color",
         "type": "color",
         "inherited_value": {
-          "default_value_path": "theme.global_colors.primary_color_1"
+          "color": "theme.global_colors.secondary_color_2.color"
         },
         "default": {
           "opacity": 100
@@ -815,7 +816,7 @@
         "type": "color",
         "inherited_value": {
           "property_value_paths": {
-            "color": "theme.global_colors.secondary_color_3.color"
+            "color": "theme.global_colors.secondary_color_4.color"
           }
         }
       },
@@ -902,7 +903,7 @@
         },
         "inherited_value": {
           "property_value_paths": {
-            "color": "theme.global_colors.primary_color_1.color"
+            "color": "theme.global_colors.primary_color_2.color"
           }
         }
       }

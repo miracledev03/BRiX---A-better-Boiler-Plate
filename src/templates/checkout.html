@@ -11,14 +11,27 @@
 {# Bust cache, do not remove #}
 {%- endif -%}
 
+{%- if widget_data.shop_settings.features.booya -%}
+{%- set auth_is_logged_in = request.cookies.booyaTemplateToken == ("btt-" ~ ((request.cookies.booyaToken ~ "." ~ widget_data.shop_settings.booya_settings.template_token)|md5)) -%}
+{%- set can_checkout = auth_is_logged_in -%}
+{%- set auth_email = contact_without_defaults.email %}
+{%- set auth_vtoken = "BOOYA@" ~ request.cookies.booyaToken ~ "@" ~ widget_data.shop_settings.booya_settings.app_id %}
+{%- set auth_is_registered = auth_is_logged_in -%}
+{%- else -%}
+{%- set auth_is_logged_in = request.contact.is_logged_in -%}
+{%- set can_checkout = auth_is_logged_in or (contact_without_defaults.email and not contact.hs_content_membership_registered_at) -%}
+{%- set auth_email = request.contact.contact.email %}
+{%- set auth_vtoken = request.contact.contact_vid|string %}
+{%- set auth_is_registered = request.contact.contact.hs_content_membership_registered_at|bool -%}
+{%- endif -%}
+<!-- Action {{ request.query_dict.action }} -->
 {%- if request.query_dict.action == "refresh_cart" -%}
   {%- set cart_data = [] -%}
   {%- set ids = request.query_dict.ids|split(",") %}
-  {%- set can_checkout = request.contact.is_logged_in or (contact.email and not contact.hs_content_membership_registered_at) -%}
-  {%- set tokenKey = can_checkout ? widget_data.shop_settings.token_key : "" -%}
+  {%- set tokenKey = can_checkout ? country_setting.token_key|default(widget_data.shop_settings.token_key, True) : "" -%}
   {%- for product in all_products -%}
     {%- if ids is containing product.id|string -%}
-      {%- set tokenRaw = ["PRODUCT", request.contact.contact_vid|string, contact.email, product.id|string, product.price|string, product.name|replace("|", " "), unixtimestamp()|string]|join("|") -%}
+      {%- set tokenRaw = ["PRODUCT", auth_vtoken, auth_email, product.id|string, product.price|string, product.name|replace("|", " "), unixtimestamp()|string]|join("|") -%}
       {%- set signature = can_checkout ? (((tokenKey|md5) ~ (tokenKey ~ tokenRaw ~ tokenKey)|md5 ~ (tokenKey|md5))|md5) : "NO_SIGNATURE" -%}
       {%- do cart_data.append({
         id: product.id,
@@ -30,13 +43,26 @@
     {%- endif -%}
   {%- endfor -%}
   {%- set endtag = "data-end-8aaed7c5-85cd-4a8d-bf6c-ee739fa84751-" ~ unixtimestamp() -%}
-  {%- set tokeKey = "" -%}
+  {%- set tokenKey = "" -%}
   <script type="application/json" data-call-result="{{ endtag }}">{{ cart_data|tojson }}</script><!-- {{ endtag }} -->
 {%- endif -%}
 
 {%- endblock top -%}
 
-{% block body_classes %}header--inverted page--checkout{% endblock body_classes %}
+{% block body_classes %}header--inverted page--checkout booya--protected{% endblock body_classes %}
+
+{%- block body_top -%}
+  {%- if widget_data.shop_settings.features.booya -%}
+    <div id="booya-wrapper">
+      <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+    </div>
+    {%- if widget_data.shop_settings.booya_settings.load_booya_assets -%}
+      {{ require_css("https://cdn.jsdelivr.net/npm/@inboundlabs/booya-ui@0.2.4/dist/css/booya.min.css") }}
+      {{ require_js("https://cdn.jsdelivr.net/npm/@inboundlabs/booya-ui@0.2.4/dist/js/booya.min.js") }}
+    {%- endif -%}
+    {{ require_js(get_asset_url('../js/booya.js')) }}
+  {%- endif -%}
+{%- endblock body_top -%}
 
 {%- block body -%}
 {%- image_src "body_background" src="https://www.hubshop.co/hubfs/hero.jpg", export_to_template_context=True, label="Body background" -%}
@@ -122,13 +148,69 @@
   {%- module "category_slider" path="../modules/category-slider", label="Category slider", overrideable=False -%}
 </main>
 
+<script>
+window.__booyaAuthCheck = function() {
+  return !!"{{ auth_email }}";
+};
+</script>
 {{ require_js("https://js.stripe.com/v3/", "footer") }}
 {%- require_js -%}
 <script>
 jQuery(document).ready(function() {
-  var contactEmail = "{{ request.contact.contact.email }}";
-  var isMembershipRegistered = {{ request.contact.contact.hs_content_membership_registered_at ? "true" : "false" }};
-  var isLoggedIn = {{ request.contact.is_logged_in ? "true" : "false" }};
+  var contactEmail = "{{ auth_email }}";
+  var isMembershipRegistered = {{ auth_is_registered ? "true" : "false" }};
+  var isLoggedIn = {{ auth_is_logged_in ? "true" : "false" }};
+  var withBooya = {{ widget_data.shop_settings.features.booya ? "true" : "false" }};
+
+  function signOut() {
+    _hsp.push(['revokeCookieConsent']);
+    sessionStorage.removeItem("hubShopCheckoutInfo");
+    if (withBooya) {
+      booya.ready(function() {
+        booya.logOut();
+      });
+    } else {
+      $.ajax({
+        url: "/_hcms/mem/logout",
+        dataType: "text"
+      }).done(function() {
+        location.href = location.pathname + "?t=" + Math.random();
+      });
+    }
+  }
+  if (withBooya) {
+    booya.ready(function() {
+      var checkUser = function() {
+        if (contactEmail && !isLoggedIn) {
+          signOut();
+          return;
+        }
+        if (!contactEmail) {
+          $('body').removeClass('hubshop--booya-authenticated');
+        }
+        if (!contactEmail && !sessionStorage.booyaPendingTracking) {
+          sessionStorage.setItem('booyaPendingTracking', true);
+          location.href = location.pathname + "?t=" + Math.random();
+        } else {
+          if (!contactEmail && sessionStorage.booyaTrackingTimestamp) {
+            if ((new Date()).getTime() - parseInt(sessionStorage.booyaTrackingTimestamp) < 15000) {
+              setTimeout(function() {
+                location.href = location.pathname + "?t=" + Math.random();
+              }, 1000);
+            } else {
+              signOut();
+            }
+            return;
+          }
+        }
+      };
+      if (window.user) {
+        checkUser();
+      } else {
+        booya.on(booya.events.IDENTIFY_SUCCESS, checkUser);
+      }
+    });
+  }
 
   var checkoutFormId;
   window.addEventListener('message', function(event) {

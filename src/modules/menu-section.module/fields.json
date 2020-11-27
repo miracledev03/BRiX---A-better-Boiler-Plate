@@ -1,7 +1,8 @@
-[
-  {
-    "label": "Primary menu field",
-    "name": "primary_menu_field",
-    "type": "menu"
-  }
-]
+[ {
+  "id" : "primary_menu_field",
+  "name" : "primary_menu_field",
+  "label" : "Primary menu field",
+  "required" : false,
+  "locked" : false,
+  "type" : "menu"
+} ]

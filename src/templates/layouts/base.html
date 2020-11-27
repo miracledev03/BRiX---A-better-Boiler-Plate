@@ -1,3 +1,7 @@
+<!--
+  templateType: "none"
+  isAvailableForNewContent: false
+-->
 <!doctype html>
 <html lang="{{ html_lang }}" {{ html_lang_dir }}>
   <head>
@@ -10,6 +14,21 @@
     {{ require_js(get_asset_url('../../js/main.js')) }}
     {# To see a full list of what is included via standard_header_includes please reference this article: https://developers.hubspot.com/docs/cms/hubl/variables#required-page-template-variables #}
     {{ standard_header_includes }}
+
+    <!-- Booya Configuration -->
+    <script type="text/javascript">
+      if(!window.booyaConfig) {
+        window.booyaConfig = {
+          portalID: "{{ hub_id }}",
+          __version: "0.2.12",
+          __platform: "hubspot",
+          __product: "brix",
+        };
+      }
+    </script>
+
+    <!-- Booya Initialization -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@inboundlabs/booya-ui@latest/dist/js/booya-loader.min.js?ctag={{ today() | datetimeformat("%Y-%m-%d@%H") }}"></script>
   </head>
   <body>
     <div class="body-wrapper {{ builtin_body_classes }}">

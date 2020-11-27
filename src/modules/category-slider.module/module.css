@@ -28,7 +28,6 @@
   display: block;
   font-size: 20px;
   line-height: 120%;
-  color: black;
 }
 @media (max-width: 767px) {
   .category-slider a {

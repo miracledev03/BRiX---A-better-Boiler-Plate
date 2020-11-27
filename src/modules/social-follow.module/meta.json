@@ -1,13 +1,9 @@
 {
-  "label": "Social follow",
-  "css_assets": [],
-  "external_js": [],
-  "global": false,
-  "host_template_types": ["PAGE", "BLOG_POST", "BLOG_LISTING"],
-  "icon": "https://cdn2.hubspot.net/hubfs/6326501/boilerplate/Module%20Icons/share-square-solid.svg",
-  "js_assets": [],
-  "other_assets": [],
-  "smart_type": "NOT_SMART",
-  "tags": [],
-  "is_available_for_new_content": true
+  "global" : false,
+  "smart_type" : "NOT_SMART",
+  "icon" : "https://cdn2.hubspot.net/hubfs/6326501/boilerplate/Module%20Icons/share-square-solid.svg",
+  "host_template_types" : [ "PAGE", "BLOG_POST", "BLOG_LISTING" ],
+  "module_id" : 37923418590,
+  "label" : "Social follow",
+  "is_available_for_new_content" : true
 }

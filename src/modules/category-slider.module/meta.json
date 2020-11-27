@@ -2,7 +2,7 @@
   "global" : false,
   "smart_type" : "NOT_SMART",
   "host_template_types" : [ "PAGE", "BLOG_POST", "BLOG_LISTING" ],
-  "module_id" : 34180941532,
+  "module_id" : 37969833180,
   "label" : "Category slider",
   "is_available_for_new_content" : true
 }

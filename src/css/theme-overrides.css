@@ -506,6 +506,10 @@ body .submenu.level-2 > li:first-child.focus:before {
   }
 }
 
+.header__search .hs-search-field__input {
+  background-color: {{ primary_color_3 }};
+}
+
 {###########################################################################}
 {###########################   8. Site footer   ############################}
 {###########################################################################}
@@ -666,43 +670,41 @@ body .team-member__description {
 }
 
 hr {
-  background-color: {{ secondary_color_2 }};
+  background-color: {{ primary_color_2 }};
   border: 0 !important;
 }
 
 .hero-section h1 {
-  color: {{ neutral_color }};
+  color: {{ primary_color_2 }};
 }
 
 .hero-section p {
   {{ body_text_medium.style }};
   font-size: {{ body_text_medium.size ~ body_text_medium.size_unit }};
-  color: {{ neutral_color }};
+  color: {{ primary_color_2 }};
 }
 
 .hero-section a.button {
   {{ label_text_large.style }};
   font-size: {{ label_text_large.size ~ label_text_large.size_unit }};
-  background-color: {{ neutral_color }};
-  color: {{ primary_color_1 }};
 }
 
 .product-list-item__name {
   {{ body_text_medium.style }};
   font-size: {{ body_text_medium.size ~ body_text_medium.size_unit }};
-  color: {{ primary_color_3 }};
+  color: {{ primary_color_2 }};
 }
 
 .product-list-item__price {
   {{ body_text_medium.style }};
   font-size: {{ body_text_medium.size ~ body_text_medium.size_unit }};
-  color: {{ primary_color_1 }};
+  color: {{ primary_color_2 }};
 }
 
 .product-info__intro p {
   {{ body_text_medium.style }};
   font-size: {{ body_text_medium.size ~ body_text_medium.size_unit }};
-  color: {{ primary_color_3 }};
+  color: {{ primary_color_2 }};
 }
 
 .category-product-list__bottom-cta .button,
@@ -722,4 +724,38 @@ hr {
   background-color: {{ neutral_color }};
   color: {{ primary_color_2 }};
   border: 1px solid {{ primary_color_2 }};
+}
+
+.product-info__price {
+  color: {{ primary_color_2 }};
+}
+
+.product-info__buy-now,
+.product-info__buy-now:hover,
+.product-info__buy-now:focus {
+  border-color: {{ primary_color_2 }};
+  color: {{ primary_color_2 }};
+}
+
+
+.product-info .read-more-link,
+.product-info.expanded .read-more-link {
+  color: {{ primary_color_2 }};
+}
+
+.social-links__icon {
+  background-color: {{ primary_color_2 }} !important;
+}
+
+.card__body svg {
+  fill: {{ primary_color_2 }} !important;
+}
+
+.featured-category__arrows button::before {
+  color: {{ primary_color_2 }} !important;
+}
+
+.category-slider .slick-next::before,
+.category-slider .slick-prev::before {
+  color: {{ primary_color_2 }} !important;
 }

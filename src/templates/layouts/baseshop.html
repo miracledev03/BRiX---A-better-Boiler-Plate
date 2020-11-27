@@ -21,7 +21,7 @@
     {{ require_js(get_asset_url('../../js/main.js')) }}
     {{ standard_header_includes }}
   </head>
-  <body class="{%- block body_classes -%}{%- endblock body_classes -%}">
+  <body class="{%- block body_classes -%}{%- endblock body_classes -%} {% if widget_data.shop_settings.features.booya %}hubshop--with-booya{% endif %} {% if not widget_data.shop_settings.features.shopping_cart %}shopping-cart--disable{% endif %}">
     <div class="body-wrapper {{ builtin_body_classes }}">
       {%- block header -%}
         {%- global_partial path='../partials/header.html' -%}

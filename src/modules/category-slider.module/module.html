@@ -7,8 +7,8 @@
       <li>
         <a href="{{ widget_data.shop_settings.page_links.category.href }}?category={{ item.name|lower|regex_replace("[^a-z0-9]", "") }}">
           <span class="category-slider__image flex-image"
-            style="background-image: url({{ resize_image_url(item.settings.image.src, 1050)|default(get_asset_url('../../images/brix-placeholder.png'), True) }});"></span>
-          {{ item.name }}
+            style="background-image: url({{ resize_image_url(item.settings.image.src, 1050)|default(get_asset_url('../../images/brix-blue-placeholder.png'), True) }});"></span>
+          <h4>{{ item.name }}</h4>
         </a>
       </li>
       {%- endfor -%}
@@ -18,8 +18,8 @@
           <li>
             <a href="#">
               <span class="category-slider__image flex-image"
-              style="background-image: url({{ resize_image_url(item.settings.image.src, 1050)|default(get_asset_url('../../images/brix-placeholder.png'), True) }});"></span>
-              Nature & Outdoors
+              style="background-image: url({{ resize_image_url(item.settings.image.src, 1050)|default(get_asset_url('../../images/brix-blue-placeholder.png'), True) }});"></span>
+              <h4>Nature & Outdoors</h4>
             </a>
           </li>
         {% endfor %}

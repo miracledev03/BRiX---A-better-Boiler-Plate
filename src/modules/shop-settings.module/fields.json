@@ -1,51 +1,4 @@
 [ {
-  "id" : "token_key",
-  "name" : "token_key",
-  "label" : "Token key",
-  "required" : false,
-  "locked" : true,
-  "validation_regex" : "",
-  "allow_new_line" : false,
-  "show_emoji_picker" : false,
-  "type" : "text",
-  "default" : "ENTER KEY AS INSTRUCTED"
-}, {
-  "id" : "stripe_public_key",
-  "name" : "stripe_public_key",
-  "label" : "Stripe public key",
-  "required" : false,
-  "locked" : true,
-  "validation_regex" : "pk_(test|live)_.+",
-  "allow_new_line" : false,
-  "show_emoji_picker" : false,
-  "type" : "text",
-  "default" : "pk_test_***"
-}, {
-  "id" : "api_url",
-  "name" : "api_url",
-  "label" : "API URL",
-  "required" : false,
-  "locked" : true,
-  "validation_regex" : "",
-  "allow_new_line" : false,
-  "show_emoji_picker" : false,
-  "type" : "text",
-  "default" : "/_hcms/api/hubshop"
-}, {
-  "id" : "5e755b61-855d-5a62-cb95-c62bed02a1f2",
-  "name" : "contact_form",
-  "label" : "Contact form",
-  "required" : false,
-  "locked" : true,
-  "type" : "form",
-  "default" : {
-    "form_id" : "7387bf0b-3f12-4d18-b2f4-e65c54fc9d4d",
-    "response_type" : "inline",
-    "message" : "Thank you for updating your contact information!",
-    "gotowebinar_webinar_key" : null,
-    "form_type" : "HUBSPOT"
-  }
-}, {
   "id" : "default_price_unit",
   "name" : "default_price_unit",
   "label" : "Default price unit",
@@ -171,45 +124,6 @@
       "href" : null,
       "content_id" : 34224770363
     }
-  }, {
-    "id" : "e5999ec1-cc56-4660-a49b-b24433f1ef93",
-    "name" : "checkout",
-    "label" : "Checkout",
-    "required" : false,
-    "locked" : false,
-    "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
-    "type" : "url",
-    "default" : {
-      "type" : "CONTENT",
-      "href" : null,
-      "content_id" : 34295500248
-    }
-  }, {
-    "id" : "e8ccd147-8895-460e-ab01-7a6dc0982634",
-    "name" : "thank_you",
-    "label" : "Thank you",
-    "required" : false,
-    "locked" : false,
-    "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
-    "type" : "url",
-    "default" : {
-      "type" : "CONTENT",
-      "href" : null,
-      "content_id" : 34231712824
-    }
-  }, {
-    "id" : "8b9490dc-7d52-4404-9987-a6dea3f78303",
-    "name" : "account",
-    "label" : "Account",
-    "required" : false,
-    "locked" : false,
-    "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
-    "type" : "url",
-    "default" : {
-      "type" : "CONTENT",
-      "href" : null,
-      "content_id" : 34522933900
-    }
   } ],
   "tab" : "CONTENT",
   "expanded" : false,
@@ -234,21 +148,6 @@
       "type" : "CONTENT",
       "href" : null,
       "content_id" : 34224770363
-    },
-    "checkout" : {
-      "type" : "CONTENT",
-      "href" : null,
-      "content_id" : 34295500248
-    },
-    "thank_you" : {
-      "type" : "CONTENT",
-      "href" : null,
-      "content_id" : 34231712824
-    },
-    "account" : {
-      "type" : "CONTENT",
-      "href" : null,
-      "content_id" : 34522933900
     }
   }
 } ]

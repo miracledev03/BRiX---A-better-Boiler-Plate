@@ -2,7 +2,7 @@
   "global" : true,
   "smart_type" : "NOT_SMART",
   "host_template_types" : [ "ANY" ],
-  "module_id" : 33932185832,
+  "module_id" : 37969833196,
   "label" : "Shop settings",
   "is_available_for_new_content" : false
 }

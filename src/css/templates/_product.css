@@ -32,7 +32,7 @@
   grid-area: details;
   box-sizing: border-box;
   width: 100%;
-  max-width: 100%;
+  max-width: calc({{ theme.spacing.max_width }}px / 2);
   padding: 50px 20px;
 }
 @media (min-width: {{ theme.spacing.max_width ~ 'px' }}) {
@@ -100,4 +100,20 @@
 .product-info .read-more-link,
 .product-info.expanded .read-more-link {
   display: none;
+}
+
+.product-info__price {
+  
+}
+
+.product-info__buy-now {
+  border: 1px solid;
+  padding: 10px 24px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.product-info__buy-now:hover,
+.product-info__buy-now:focus {
+  text-decoration: none;
 }

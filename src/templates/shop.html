@@ -1,7 +1,7 @@
 <!--
   templateType: page
   isAvailableForNewContent: true
-  label: Landing
+  label: Shop page
 -->
 {% extends "./layouts/baseshop.html" %}
 
@@ -14,12 +14,7 @@
 <main class="body-container-wrapper">
   {% dnd_area 'dnd_area' class='body-container', label='Main section' %}
     {% dnd_section
-      background_color={
-        r: 49,
-        g: 49,
-        b: 49,
-        a: 1
-      },
+      background_color={{ theme.global_colors.secondary_color_4.color }},
       full_width="true"
     %}
       {% dnd_module path='../modules/hero-section' %}{% end_dnd_module %}

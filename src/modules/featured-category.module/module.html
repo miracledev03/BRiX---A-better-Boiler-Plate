@@ -1,7 +1,7 @@
 {%- set key = module.category|lower|regex_replace("[^a-z0-9]", "") -%}
 {%- set cat = all_categories_map[key] -%}
 <div class="featured-category product-info {% if module.swap_image_and_details %}product-info--swap{% endif %}">
-  <div class="product-info__image flex-image" style="background-image: url('{{ module.image.src|default(get_asset_url('../../images/brix-placeholder.png'), True) }}');">
+  <div class="product-info__image flex-image" style="background-image: url('{{ module.image.src|default(cat.settings.image.src|default(get_asset_url('../../images/brix-blue-placeholder.png'), True), True) }}');">
     <div></div>
   </div>
   <div class="product-info__details">
@@ -14,7 +14,7 @@
         {%- set price_suffix = price_suffix ? "/" ~ price_suffix : "" -%}
         <li class="product-list-item">
           <a href="{{ widget_data.shop_settings.page_links.product_details.href }}?id={{ product.id }}">
-            <span class="product-list-item__image flex-image" style="background-image: url('{{ resize_image_url(product.image, 500)|default(get_asset_url('../../images/brix-placeholder.png'), True) }}');"></span>
+            <span class="product-list-item__image flex-image" style="background-image: url('{{ resize_image_url(product.image, 500)|default(get_asset_url('../../images/brix-blue-placeholder.png'), True) }}');"></span>
             <p class="product-list-item__name">{{ product.name }}</p>
             <p class="product-list-item__price">
               <span>{{ product.price|format_currency }}</span>{{ price_suffix }}
@@ -28,7 +28,7 @@
         {%- for i in range(0, 2) -%}
           <li class="product-list-item">
             <a href="#">
-              <span class="product-list-item__image flex-image" style="background-image: url('{{ resize_image_url(product.image, 500)|default(get_asset_url('../../images/brix-placeholder.png'), True) }}');"></span>
+              <span class="product-list-item__image flex-image" style="background-image: url('{{ resize_image_url(product.image, 500)|default(get_asset_url('../../images/brix-blue-placeholder.png'), True) }}');"></span>
               <p class="product-list-item__name">Snorkeling Blue Lagoon with Lunch & Guide</p>
               <p class="product-list-item__price">
                 <span>€24</span>/person

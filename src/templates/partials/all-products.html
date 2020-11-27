@@ -3,7 +3,7 @@
   isAvailableForNewContent: false
 -->
 {%- set all_products_raw = [] -%}
-{%- set product_fields = "price,price_unit,name,image,description,category" -%}
+{%- set product_fields = "price,price_unit,name,image,description,category,buy_now_link" -%}
 
 {%- for i in range(0,10) -%}
   {%- if all_products_raw|length == 0 or all_products_raw[all_products_raw|length - 1].has_more -%}

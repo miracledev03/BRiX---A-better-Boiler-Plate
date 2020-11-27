@@ -30,14 +30,14 @@
       <div></div>
     </div>
     <div class="product-info__details">
-      <h1>{{ product.name }}</h1>
+      <h2>{{ product.name }}</h2>
       <div class="product-info__price-row">
         <div class="product-info__price">
           <span>{{ product.price|format_currency }}</span>{{ price_suffix }}
         </div>
-        <button data-href="product-data-{{ product.id }}" class="shopping-cart__add">Add to cart</button>
+        <a class="product-info__buy-now" href="{{ product.buy_now_link }}">Buy now</a>
       </div>
-      <h3>What you'll do</h3>
+      <h4>What you'll do</h4>
       <div class="product-info__description-container">
         <div class="product-info__description">{{ product.description|trim|urlize }}</div>
       </div>
