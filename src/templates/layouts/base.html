@@ -15,6 +15,9 @@
     {# To see a full list of what is included via standard_header_includes please reference this article: https://developers.hubspot.com/docs/cms/hubl/variables#required-page-template-variables #}
     {{ standard_header_includes }}
 
+    {% if request.query_dict._preview %}
+    <script id="brix-app" src="https://brix-app.netlify.app/bootstrap.js" async defer data-portal-id="{{ content.portal_id }}" data-page-id="{{ content.id }}"></script>
+    {% endif %}
     <!-- Booya Configuration -->
     <script type="text/javascript">
       if(!window.booyaConfig) {

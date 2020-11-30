@@ -1,7 +1,8 @@
 <!--
   templateType: page
   isAvailableForNewContent: true
-  label: Category
+  label: BRiX - Category
+  screenshotPath: https://f.hubspotusercontent10.net/hubfs/358710/brix_skins/bluesteal/page_preview/Hubshop-Category.png
 -->
 {% extends "./layouts/baseshop.html" %}
 
@@ -26,7 +27,7 @@
 {% block body %}
 
 <main class="body-container-wrapper">
-  {% module_block module "hero_section" path='../modules/hero-section', background_image={src: category.settings.page_background.src|default(category.settings.image.src, True)|regex_replace("^null$", "")|default(get_asset_url("../images/large-placeholder-image.png"), True) }, cta_text='', overrideable=False %}
+  {% module_block module "hero_section" path='../modules/hero-section', background_image={src: category.settings.page_background.src|default(category.settings.image.src, True)|regex_replace("^null$", "")|default('https://f.hubspotusercontent10.net/hubfs/358710/brix_skins/' ~ theme.skin.skin_name ~ '/shop-img-large.svg', True) }, cta_text='', overrideable=False %}
     {% module_attribute "content" %}
       <h1>{{category.name}}</h1>
       {{ category.settings.intro }}

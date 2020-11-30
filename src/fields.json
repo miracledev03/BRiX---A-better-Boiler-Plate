@@ -1,5 +1,24 @@
 [
   {
+    "label": "Skin",
+    "name": "skin",
+    "type": "group",
+    "children": [
+      {
+        "name" : "skin_name",
+        "label" : "Skin name",
+        "required" : true,
+        "locked" : false,
+        "display" : "select",
+        "choices" : [
+          [ "bluesteal", "Bluesteal" ]
+        ],
+        "type" : "choice",
+        "default" : "bluesteal"
+      }
+    ]
+  },
+  {
     "label": "Global colors",
     "name": "global_colors",
     "type": "group",
@@ -751,7 +770,9 @@
           }
         },
         "inherited_value": {
-          "color": "theme.global_colors.secondary_color_1.color"
+          "property_value_paths": {
+            "color": "theme.global_colors.secondary_color_1.color"
+          }
         }
       }
     ]

@@ -1,0 +1,43 @@
+{% macro unique_id() %}{% for n in [0,1,2,3,4,5] %}{{ [0,1,2,3,4,5,6,7,8,9]|random }}{% endfor %}{% endmacro %}
+{% set moduleID = 'module-section-options-'+unique_id() %}
+{% set moduleName = 'module-section-options' %}
+
+<div data-module="advanced-section" 
+		 class="{{ moduleName }}" 
+		 id="{{ moduleID }}">
+</div> 
+
+{% if module.enable %}
+	<script id="{{ moduleName }}">
+		if( window._fr == null) {
+			window._fr = [];
+		}
+		if( window._fr.sections == null) {
+			window._fr.sections = [];
+		}
+		var options = {
+			'moduleID' : '{{ moduleID }}',
+			'enable' : '{{ module.enable }}',
+			'layout' : {
+				'full_height' : '{{ module.layout.enable_full_browser_height }}'
+			},
+			'typography' : {
+				'override_text_color' : '{{ module.typography.override_text_color }}',
+				'text_color' : '{{ module.typography.text_color.color }}',
+			},
+	    'background' : {
+				'enable_color' : '{{ module.background.enable_background_color }}',
+				'solid_color' : 'rgba({{ color_variant(module.background.background_color.solid_color.color, 0)|convert_rgb }}, {{ module.background.background_color.solid_color.opacity / 100 }})',
+				'enable_image' : '{{ module.background.enable_background_image }}',
+				'desktop_image' : '{{ module.background.image_background.desktop.src }}',
+				'tablet_image' : '{{ module.background.image_background.tablet.src }}',
+				'mobile_image' : '{{ module.background.image_background.mobile.src }}',
+				'enable_parallax_effect' : '{{ module.background.enable_background_parallax_effect }}'
+			},
+			'advanced' : {
+				'css_classes' : '{{ module.advanced.css_classes }}'
+			} 
+		};
+		window._fr.sections.push(options);
+	</script>
+{% endif %}

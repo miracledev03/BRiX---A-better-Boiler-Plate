@@ -7,7 +7,7 @@
       <li>
         <a href="{{ widget_data.shop_settings.page_links.category.href }}?category={{ item.name|lower|regex_replace("[^a-z0-9]", "") }}">
           <span class="category-slider__image flex-image"
-            style="background-image: url({{ resize_image_url(item.settings.image.src, 1050)|default(get_asset_url('../../images/brix-blue-placeholder.png'), True) }});"></span>
+            style="background-image: url({{ resize_image_url(item.settings.image.src, 1050)|default('https://f.hubspotusercontent10.net/hubfs/358710/brix_skins/' ~ theme.skin.skin_name ~ '/img-category-large.svg', True) }});"></span>
           <h4>{{ item.name }}</h4>
         </a>
       </li>
@@ -18,7 +18,7 @@
           <li>
             <a href="#">
               <span class="category-slider__image flex-image"
-              style="background-image: url({{ resize_image_url(item.settings.image.src, 1050)|default(get_asset_url('../../images/brix-blue-placeholder.png'), True) }});"></span>
+              style="background-image: url({{ resize_image_url(item.settings.image.src, 1050)|default('https://f.hubspotusercontent10.net/hubfs/358710/brix_skins/' ~ theme.skin.skin_name ~ '/img-category-large.svg', True) }});"></span>
               <h4>Nature & Outdoors</h4>
             </a>
           </li>

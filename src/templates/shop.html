@@ -1,7 +1,8 @@
 <!--
   templateType: page
   isAvailableForNewContent: true
-  label: Shop page
+  label: BRiX - Shop
+  screenshotPath: https://f.hubspotusercontent10.net/hubfs/358710/brix_skins/bluesteal/page_preview/Hubshop-Home.png
 -->
 {% extends "./layouts/baseshop.html" %}
 
@@ -15,7 +16,13 @@
   {% dnd_area 'dnd_area' class='body-container', label='Main section' %}
     {% dnd_section
       background_color={{ theme.global_colors.secondary_color_4.color }},
-      full_width="true"
+      full_width="true",
+      padding={
+        'top': 0,
+        'right': 0,
+        'bottom': 0,
+        'left': 0
+      }
     %}
       {% dnd_module path='../modules/hero-section' %}{% end_dnd_module %}
     {% end_dnd_section %}

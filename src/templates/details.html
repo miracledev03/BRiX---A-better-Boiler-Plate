@@ -1,7 +1,8 @@
 <!--
   templateType: page
   isAvailableForNewContent: true
-  label: Product Details
+  label: BRiX - Product Details
+  screenshotPath: https://f.hubspotusercontent10.net/hubfs/358710/brix_skins/bluesteal/page_preview/Hubshop-experience-detail.png
 -->
 {%- extends "./layouts/baseshop.html" -%}
 
@@ -26,7 +27,7 @@
 
 <main class="body-container-wrapper">
   <section class="product-info">
-    <div class="product-info__image flex-image" style="background-image: url('{{ product.image }}');">
+    <div class="product-info__image flex-image" style="background-image: url('{{ product.image|default('https://f.hubspotusercontent10.net/hubfs/358710/brix_skins/{{ theme.skin.skin_name }}/shop-img-large.svg', True) }}');">
       <div></div>
     </div>
     <div class="product-info__details">

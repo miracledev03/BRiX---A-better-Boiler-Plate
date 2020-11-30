@@ -1,6 +1,7 @@
 {
   "global" : true,
   "smart_type" : "NOT_SMART",
+  "icon" : "https://f.hubspotusercontent10.net/hubfs/358710/brix_skins/bluesteal/brix-module-icon.svg",
   "host_template_types" : [ "ANY" ],
   "module_id" : 37969833196,
   "label" : "Shop settings",

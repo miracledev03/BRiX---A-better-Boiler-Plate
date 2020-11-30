@@ -627,7 +627,7 @@ body .submenu.level-2 > li:first-child.focus:before {
 .blog-card__title a {
   {{ body_text_small_bold.style }};
   font-size: {{ body_text_small_bold.size ~ body_text_small_bold.size_unit }};
-  color: {{ primary_color_1 }};
+  color: {{ primary_color_2 }};
   text-decoration: none;
 }
 
@@ -641,6 +641,13 @@ body .submenu.level-2 > li:first-child.focus:before {
   padding: 3.3rem 24px;
 }
 
+.blog-index__post-content a {
+  color: {{ primary_color_2 }};
+}
+
+.blog-related-posts__title a {
+  color: {{ primary_color_2 }};
+}
 
 {###########################################################################}
 {##########################   10. System pages   ###########################}
@@ -758,4 +765,9 @@ hr {
 .category-slider .slick-next::before,
 .category-slider .slick-prev::before {
   color: {{ primary_color_2 }} !important;
+}
+
+.card--pricing {
+  background-color: {{ secondary_color_4 }};
+  border: none !important;
 }

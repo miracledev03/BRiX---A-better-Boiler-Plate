@@ -1,12 +1,12 @@
 <!--
   templateType: page
   isAvailableForNewContent: true
-  label: Landing page
+  label: BRiX - Landing page
 -->
 {% extends './layouts/base.html' %}
 
 {% block header %}
-  {% global_partial path='./partials/header-no-navigation.html' %}
+  {% global_partial path='./partials/header.html' %}
 {% endblock header %}
 
 {% block body %}
@@ -28,7 +28,7 @@
         img={
           'alt': 'Stock placeholder image with grayscale geometrical mountain landscape',
           'size_type': 'auto',
-          'src': get_asset_url('../images/brix-blue-placeholder.png')
+          'src': 'https://f.hubspotusercontent10.net/hubfs/358710/brix_skins/{{ theme.skin.skin_name }}/img-hero-default.svg'
         },
         offset=0,
         width=6
@@ -67,7 +67,7 @@
             img={
               'alt': 'Stock placeholder image with grayscale geometrical mountain landscape',
               'size_type': 'auto',
-              'src': get_asset_url('../images/brix-blue-placeholder.png')
+              'src': 'https://f.hubspotusercontent10.net/hubfs/358710/brix_skins/{{ theme.skin.skin_name }}/img-feature-medium.svg'
             }
           %}
           {% end_dnd_module %}
@@ -90,7 +90,7 @@
             img={
               'alt': 'Stock placeholder image with grayscale geometrical mountain landscape',
               'size_type': 'auto',
-              'src': get_asset_url('../images/brix-blue-placeholder.png')
+              'src': 'https://f.hubspotusercontent10.net/hubfs/358710/brix_skins/{{ theme.skin.skin_name }}/img-feature-medium.svg'
             }
           %}
           {% end_dnd_module %}
@@ -113,7 +113,7 @@
             img={
               'alt': 'Stock placeholder image with grayscale geometrical mountain landscape',
               'size_type': 'auto',
-              'src': get_asset_url('../images/brix-blue-placeholder.png')
+              'src': 'https://f.hubspotusercontent10.net/hubfs/358710/brix_skins/{{ theme.skin.skin_name }}/img-feature-medium.svg'
             }
           %}
           {% end_dnd_module %}

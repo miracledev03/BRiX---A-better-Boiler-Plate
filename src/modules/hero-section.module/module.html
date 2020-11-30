@@ -1,4 +1,4 @@
-<div class="hero-section flex-image" style="background-image: url('{{ module.background_image.src }}')">
+<div class="hero-section flex-image" style="background-image: url('{{ module.background_image.src|default('https://f.hubspotusercontent10.net/hubfs/358710/brix_skins/' ~ theme.skin.skin_name ~ '/shop-hero.svg', True) }}')">
   <div class="content-wrapper">
     {{ module.content }}
     {% if module.cta_text %}

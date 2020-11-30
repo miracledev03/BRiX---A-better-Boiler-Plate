@@ -1,0 +1,240 @@
+/** 
+ * Options Section
+ * 
+ * @version  1.0.0
+ * @since    1.0.0
+ */
+html:not(.hs-inline-edit) [data-module="advanced-section"] {
+  display: none;
+}
+
+/* Inline Editor */
+html.hs-inline-edit:hover [data-module="advanced-section"] {
+  position: relative;
+  min-height: 15px;
+  margin-top: 7px;
+}
+
+html.hs-inline-edit:hover [data-module="advanced-section"]::after {
+  content: ' ';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  background-image: linear-gradient(45deg, #0091ae 9.09%, transparent 9.09%, transparent 50%, #0091ae 50%, #0091ae 59.09%, transparent 59.09%, transparent 100%);
+  background-size: 15.56px 15.56px;
+}
+
+html.hs-inline-edit:hover [data-module="advanced-section"]::before {
+  content: "Advanced Options";
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: auto;
+  background-color: #0091ae;
+  color: white;
+  padding: 10px 25px 10px 25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50px;
+  z-index: 11;
+  line-height: 1;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 10px;
+}
+
+html.hs-inline-edit:hover [data-module="advanced-section"]::before {
+  background-color: #425B76;
+}
+
+
+/* Recommended styles for Splitting */
+.splitting .word,
+.splitting .char {
+  display: inline-block;
+}
+
+/* Psuedo-element chars */
+.splitting .char {
+  position: relative;
+}
+
+/**
+ * Populate the psuedo elements with the character to allow for expanded effects
+ * Set to `display: none` by default; just add `display: block` when you want
+ * to use the psuedo elements
+ */
+.splitting .char::before,
+.splitting .char::after {
+  content: attr(data-char);
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  transition: inherit;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+/* Expanded CSS Variables */
+.splitting {
+  /* The center word index */
+  --word-center: calc((var(--word-total) - 1) / 2);
+  /* The center character index */
+  --char-center: calc((var(--char-total) - 1) / 2);
+  /* The center character index */
+  --line-center: calc((var(--line-total) - 1) / 2);
+}
+
+.splitting .word {
+  /* Pecent (0-1) of the word's position */
+  --word-percent: calc(var(--word-index) / var(--word-total));
+  /* Pecent (0-1) of the line's position */
+  --line-percent: calc(var(--line-index) / var(--line-total));
+}
+
+.splitting .char {
+  /* Percent (0-1) of the char's position */
+  --char-percent: calc(var(--char-index) / var(--char-total));
+  /* Offset from center, positive & negative */
+  --char-offset: calc(var(--char-index) - var(--char-center));
+  /* Absolute distance from center, only positive */
+  --distance: calc(
+     (var(--char-offset) * var(--char-offset)) / var(--char-center)
+  );
+  /* Distance from center where -1 is the far left, 0 is center, 1 is far right */
+  --distance-sine: calc(var(--char-offset) / var(--char-center));
+  /* Distance from center where 1 is far left/far right, 0 is center */
+  --distance-percent: calc((var(--distance) / var(--char-center)));
+}
+
+.splitting.cells img {
+  width: 100%;
+  display: block;
+}
+
+@supports (display: grid) {
+  .splitting.cells {
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    visibility: hidden;
+  }
+  .splitting .cell-grid {
+    background: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template: repeat(var(--row-total), 1fr)/repeat(var(--col-total), 1fr);
+  }
+  .splitting .cell {
+    background: inherit;
+    position: relative;
+    overflow: hidden;
+  }
+  .splitting .cell-inner {
+    background: inherit;
+    position: absolute;
+    visibility: visible;
+    /* Size to fit the whole container size */
+    width: calc(100% * var(--col-total));
+    height: calc(100% * var(--row-total));
+    /* Position properly */
+    left: calc(-100% * var(--col-index));
+    top: calc(-100% * var(--row-index));
+  }
+  /* Helper variables for advanced effects */
+  .splitting .cell {
+    --center-x: calc((var(--col-total) - 1) / 2);
+    --center-y: calc((var(--row-total) - 1) / 2);
+    /* Offset from center, positive & negative */
+    --offset-x: calc(var(--col-index) - var(--center-x));
+    --offset-y: calc(var(--row-index) - var(--center-y));
+    /* Absolute distance from center, only positive */
+    --distance-x: calc( (var(--offset-x) * var(--offset-x)) / var(--center-x) );
+    /* Absolute distance from center, only positive */
+    --distance-y: calc( (var(--offset-y) * var(--offset-y)) / var(--center-y) );
+  }
+}
+
+.dnd-section.-with-custom-section-options {
+  /* Full Height */
+  /* Typography */
+  /* Background Color */
+  /* Background Image */
+}
+
+.dnd-section.-with-custom-section-options.-enable-full-height {
+  min-height: 100vh;
+}
+
+.dnd-section.-with-custom-section-options.-override-text-color {
+  color: var(--text-color);
+}
+
+.dnd-section.-with-custom-section-options.-override-text-color [data-module="heading"],
+.dnd-section.-with-custom-section-options.-override-text-color [data-module="rich-text"] {
+  color: inherit;
+}
+
+.dnd-section.-with-custom-section-options.-add-solid-color {
+  position: relative;
+}
+
+.dnd-section.-with-custom-section-options.-add-solid-color::after {
+  content: ' ';
+  width: 100vw;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--background-solidColor);
+  z-index: -1;
+}
+
+.dnd-section.-with-custom-section-options.-add-background-image {
+  position: relative;
+  background-image: var(--background-desktopImage);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (max-width: 1024px) {
+  .dnd-section.-with-custom-section-options.-add-background-image {
+    background-image: var(--background-desktopImage);
+  }
+}
+
+@media (max-width: 1023px) {
+  .dnd-section.-with-custom-section-options.-add-background-image {
+    background-image: var(--background-tabletImage);
+  }
+}
+
+@media (max-width: 568px) {
+  .dnd-section.-with-custom-section-options.-add-background-image {
+    background-image: var(--background-mobileImage);
+  }
+}
+
+.dnd-section.-with-custom-section-options.jarallax {
+  position: relative;
+  z-index: 0;
+}
+
+/* Hubspot Module */
+.dnd-module.-no-min-height {
+  min-height: 0 !important;
+}
