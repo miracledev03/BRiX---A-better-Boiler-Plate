@@ -40,6 +40,11 @@
     {%- block cart -%}
     {%- include "../partials/shopping-cart.html" -%}
     {%- endblock cart -%}
+
+    {% if not site_settings.include_jquery %}
+    <script src="/hs/hsstatic/jquery-libs/static-1.4/jquery/jquery-1.11.2.js"></script>
+    {% endif %}
+    
     {{ standard_footer_includes }}
   </body>
 </html>

@@ -1,7 +1,7 @@
 {
   "label": "BRiX - A better Boilerplate",
   "preview_path": "./templates/home.html",
-  "screenshot_path": "https://f.hubspotusercontent10.net/hubfs/358710/brix_skins/{{ theme.skin.skin_name }}/page_preview/Home.png",
+  "screenshot_path": "./images/template_previews/Home.png",
   "enable_domain_stylesheets": false,
   "license": "./license.txt",
   "responsive_breakpoints": [

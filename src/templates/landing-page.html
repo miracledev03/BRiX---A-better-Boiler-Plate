@@ -6,7 +6,7 @@
 {% extends './layouts/base.html' %}
 
 {% block header %}
-  {% global_partial path='./partials/header.html' %}
+  {% global_partial path='./partials/header-no-navigation.html' %}
 {% endblock header %}
 
 {% block body %}
@@ -133,3 +133,6 @@
   {% end_dnd_area %}
 </main>
 {% endblock body %}
+
+{% block footer %}
+{% endblock footer %}
